@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <base href="/LcModCodeDocs/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脑叶公司Mod开发文档</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>脑叶公司Mod开发文档</h1>
+        <nav class="main-nav">
+            <button class="sidebar-toggle" onclick="toggleSidebar()" title="切换侧边栏">
+                <span id="sidebar-icon">☰</span>
+            </button>
+            <a href="https://github.com/LINGXINGE/LcModCodeDocs" class="nav-link">GitHub</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                <span id="theme-icon">深色</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">API 参考</div>
+            <ul class="sidebar-nav">
+                <li><a href="#common">开发常用基类</a></li>
+                <li><a href="#managers">Manager 类</a></li>
+                <li><a href="#models">Model 类</a></li>
+                <li><a href="#bases">Base 类</a></li>
+                <li><a href="#animscripts">AnimScript 类</a></li>
+            </ul>
+            
+            <div class="sidebar-header">开发常用基类</div>
+            <ul class="sidebar-nav">
+                <li><a href="manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="model/AgentModel.html">AgentModel</a></li>
+                <li><a href="model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="common/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="common/CommandWindow.html">CommandWindow</a></li>
+                <li><a href="animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="common/DamageInfo.html">DamageInfo</a></li>
+                <li><a href="base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="common/IObserver.html">IObserver</a></li>
+                <li><a href="common/MapEdge.html">MapEdge</a></li>
+                <li><a href="common/MapGraph.html">MapGraph</a></li>
+                <li><a href="common/MapNode.html">MapNode</a></li>
+                <li><a href="common/MovableObjectNode.html">MovableObjectNode</a></li>
+                <li><a href="common/Notice.html">Notice</a></li>
+                <li><a href="common/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="common/UncontrollableAction.html">UncontrollableAction</a></li>
+                <li><a href="common/UnitBuf.html">UnitBuf</a></li>
+                <li><a href="common/UnitStatBuf.html">UnitStatBuf</a></li>
+                <li><a href="model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="model/WorkerModel.html">WorkerModel</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Manager 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="manager/AnimatorManager.html">AnimatorManager</a></li>
+                <li><a href="manager/ArrowManager.html">ArrowManager</a></li>
+                <li><a href="manager/BgmManager.html">BgmManager</a></li>
+                <li><a href="manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="manager/CreatureOverloadManager.html">CreatureOverloadManager</a></li>
+                <li><a href="manager/CursorManager.html">CursorManager</a></li>
+                <li><a href="manager/ExplodeGutManager.html">ExplodeGutManager</a></li>
+                <li><a href="manager/GameManager.html">GameManager</a></li>
+                <li><a href="manager/GlobalAudioManager.html">GlobalAudioManager</a></li>
+                <li><a href="manager/GlobalGameManager.html">GlobalGameManager</a></li>
+                <li><a href="manager/HierarchicalDataManager.html">HierarchicalDataManager</a></li>
+                <li><a href="manager/IconManager.html">IconManager</a></li>
+                <li><a href="manager/IsolateDescManager.html">IsolateDescManager</a></li>
+                <li><a href="manager/ItemObjectManager.html">ItemObjectManager</a></li>
+                <li><a href="manager/LocalAudioManager.html">LocalAudioManager</a></li>
+                <li><a href="manager/MissionManager.html">MissionManager</a></li>
+                <li><a href="manager/ObserveInfoManager.html">ObserveInfoManager</a></li>
+                <li><a href="manager/OfficerManager.html">OfficerManager</a></li>
+                <li><a href="manager/OrdealManager.html">OrdealManager</a></li>
+                <li><a href="manager/OverlappedUIManager.html">OverlappedUIManager</a></li>
+                <li><a href="manager/OverlayManager.html">OverlayManager</a></li>
+                <li><a href="manager/RabbitManager.html">RabbitManager</a></li>
+                <li><a href="manager/RandomEventManager.html">RandomEventManager</a></li>
+                <li><a href="manager/SefiraBossManager.html">SefiraBossManager</a></li>
+                <li><a href="manager/SefiraCharacterManager.html">SefiraCharacterManager</a></li>
+                <li><a href="manager/SefiraManager.html">SefiraManager</a></li>
+                <li><a href="manager/SpecialEventManager.html">SpecialEventManager</a></li>
+                <li><a href="manager/SpecialUnitClickManager.html">SpecialUnitClickManager</a></li>
+                <li><a href="manager/SpriteLoadManager.html">SpriteLoadManager</a></li>
+                <li><a href="manager/StandingItemManager.html">StandingItemManager</a></li>
+                <li><a href="manager/SteamManager.html">SteamManager</a></li>
+                <li><a href="manager/StoryMemoryManager.html">StoryMemoryManager</a></li>
+                <li><a href="manager/TutorialManager.html">TutorialManager</a></li>
+                <li><a href="manager/UIActivateManager.html">UIActivateManager</a></li>
+                <li><a href="manager/UIColorManager.html">UIColorManager</a></li>
+                <li><a href="manager/UIEffectManager.html">UIEffectManager</a></li>
+                <li><a href="manager/UnitMouseEventManager.html">UnitMouseEventManager</a></li>
+                <li><a href="manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="manager/WorkerSpriteManager.html">WorkerSpriteManager</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Model 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="model/AgentModel.html">AgentModel</a></li>
+                <li><a href="model/AgentModelEventHandler.html">AgentModelEventHandler</a></li>
+                <li><a href="model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="model/BloodMapObjectModel.html">BloodMapObjectModel</a></li>
+                <li><a href="model/CharacterResourceDataModel.html">CharacterResourceDataModel</a></li>
+                <li><a href="model/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="model/CreatureObserveInfoModel.html">CreatureObserveInfoModel</a></li>
+                <li><a href="model/DoorObjectModel.html">DoorObjectModel</a></li>
+                <li><a href="model/EGOgiftModel.html">EGOgiftModel</a></li>
+                <li><a href="model/ElevatorPassageModel.html">ElevatorPassageModel</a></li>
+                <li><a href="model/EnergyModel.html">EnergyModel</a></li>
+                <li><a href="model/EquipmentModel.html">EquipmentModel</a></li>
+                <li><a href="model/EventCreatureModel.html">EventCreatureModel</a></li>
+                <li><a href="model/GameSettingModel.html">GameSettingModel</a></li>
+                <li><a href="model/GlobalEtcDataModel.html">GlobalEtcDataModel</a></li>
+                <li><a href="model/IMouseCommandTargetModel.html">IMouseCommandTargetModel</a></li>
+                <li><a href="model/InventoryModel.html">InventoryModel</a></li>
+                <li><a href="model/LocalizeTextDataModel.html">LocalizeTextDataModel</a></li>
+                <li><a href="model/MapObjectModel.html">MapObjectModel</a></li>
+                <li><a href="model/MoneyModel.html">MoneyModel</a></li>
+                <li><a href="model/ObjectModelBase.html">ObjectModelBase</a></li>
+                <li><a href="model/OfficerModel.html">OfficerModel</a></li>
+                <li><a href="model/OrdealCreatureModel.html">OrdealCreatureModel</a></li>
+                <li><a href="model/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="model/PlayerModel.html">PlayerModel</a></li>
+                <li><a href="model/ProjectileModel.html">ProjectileModel</a></li>
+                <li><a href="model/RabbitModel.html">RabbitModel</a></li>
+                <li><a href="model/ResearchDataModel.html">ResearchDataModel</a></li>
+                <li><a href="model/ResearchItemModel.html">ResearchItemModel</a></li>
+                <li><a href="model/SefiraBossCreatureModel.html">SefiraBossCreatureModel</a></li>
+                <li><a href="model/SefiraCharacterModel.html">SefiraCharacterModel</a></li>
+                <li><a href="model/StandingItemModel.html">StandingItemModel</a></li>
+                <li><a href="model/StoryStaticDataModel.html">StoryStaticDataModel</a></li>
+                <li><a href="model/StoryVariablesModel.html">StoryVariablesModel</a></li>
+                <li><a href="model/UnitModel.html">UnitModel</a></li>
+                <li><a href="model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="model/WorkerModel.html">WorkerModel</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Base 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="base/ActionClassBase.html">ActionClassBase</a></li>
+                <li><a href="base/BinahBossBase.html">BinahBossBase</a></li>
+                <li><a href="base/BirdCreatureBase.html">BirdCreatureBase</a></li>
+                <li><a href="base/BossEggBase.html">BossEggBase</a></li>
+                <li><a href="base/CensoredCreatureBase.html">CensoredCreatureBase</a></li>
+                <li><a href="base/ChesedBossBase.html">ChesedBossBase</a></li>
+                <li><a href="base/ChokhmahBossBase.html">ChokhmahBossBase</a></li>
+                <li><a href="base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="base/EventBase.html">EventBase</a></li>
+                <li><a href="base/GeburahBossBase.html">GeburahBossBase</a></li>
+                <li><a href="base/HodBossBase.html">HodBossBase</a></li>
+                <li><a href="base/MalkutBossBase.html">MalkutBossBase</a></li>
+                <li><a href="base/NetzachBossBase.html">NetzachBossBase</a></li>
+                <li><a href="base/ObjectModelBase.html">ObjectModelBase</a></li>
+                <li><a href="base/OrdealBase.html">OrdealBase</a></li>
+                <li><a href="base/RandomEventBase.html">RandomEventBase</a></li>
+                <li><a href="base/SefiraBossBase.html">SefiraBossBase</a></li>
+                <li><a href="base/StandingItemScriptBase.html">StandingItemScriptBase</a></li>
+                <li><a href="base/TipherethBossBase.html">TipherethBossBase</a></li>
+                <li><a href="base/YesodBossBase.html">YesodBossBase</a></li>
+                <li><a href="base/YinAndYangBase.html">YinAndYangBase</a></li>
+            </ul>
+            
+            <div class="sidebar-header">AnimScript 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="animscript/AnimScript.html">AnimScript</a></li>
+                <li><a href="animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="animscript/MagicalGirlResetAnimScript.html">MagicalGirlResetAnimScript</a></li>
+                <li><a href="animscript/MapFloatAnimScript.html">MapFloatAnimScript</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section id="common" class="section">
+                <h2>开发常用基类</h2>
+                <p class="section-desc">开发Mod时常用的基类，包括Buff系统、子异想体、不可控行动、模型、管理器、地图系统等。</p>
+                
+                <div class="class-grid">
+                    <a href="manager/AgentManager.html" class="class-card">
+                        <h3>AgentManager</h3>
+                        <p>管理所有Agent模型的创建、激活和停用</p>
+                    </a>
+                    <a href="model/AgentModel.html" class="class-card">
+                        <h3>AgentModel</h3>
+                        <p>代表游戏中的Agent，包括属性、技能和行为</p>
+                    </a>
+                    <a href="model/ArmorModel.html" class="class-card">
+                        <h3>ArmorModel</h3>
+                        <p>代表护甲</p>
+                    </a>
+                    <a href="common/ChildCreatureModel.html" class="class-card">
+                        <h3>ChildCreatureModel</h3>
+                        <p>子异想体模型类，用于创建异想体的子单位</p>
+                    </a>
+                    <a href="common/CommandWindow.html" class="class-card">
+                        <h3>CommandWindow</h3>
+                        <p>命令窗口类，管理职员命令界面</p>
+                    </a>
+                    <a href="animscript/CreatureAnimScript.html" class="class-card">
+                        <h3>CreatureAnimScript</h3>
+                        <p>异想体动画脚本，用于控制异想体的动画播放</p>
+                    </a>
+                    <a href="base/CreatureBase.html" class="class-card">
+                        <h3>CreatureBase</h3>
+                        <p>异想体脚本基类，提供异想体的工作、逃脱、攻击等基础功能</p>
+                    </a>
+                    <a href="manager/CreatureManager.html" class="class-card">
+                        <h3>CreatureManager</h3>
+                        <p>管理所有Creature模型的生成和状态</p>
+                    </a>
+                    <a href="model/CreatureModel.html" class="class-card">
+                        <h3>CreatureModel</h3>
+                        <p>代表游戏中的Creature</p>
+                    </a>
+                    <a href="common/DamageInfo.html" class="class-card">
+                        <h3>DamageInfo</h3>
+                        <p>伤害信息类，包含伤害类型和数值</p>
+                    </a>
+                    <a href="base/EquipmentScriptBase.html" class="class-card">
+                        <h3>EquipmentScriptBase</h3>
+                        <p>装备脚本基类，提供装备/卸载、攻击、伤害等功能</p>
+                    </a>
+                    <a href="common/IObserver.html" class="class-card">
+                        <h3>IObserver</h3>
+                        <p>观察者接口，用于实现观察者模式</p>
+                    </a>
+                    <a href="common/MapEdge.html" class="class-card">
+                        <h3>MapEdge</h3>
+                        <p>地图边类，连接两个地图节点</p>
+                    </a>
+                    <a href="common/MapGraph.html" class="class-card">
+                        <h3>MapGraph</h3>
+                        <p>地图图类，管理地图节点和路径搜索</p>
+                    </a>
+                    <a href="common/MapNode.html" class="class-card">
+                        <h3>MapNode</h3>
+                        <p>地图节点类，代表地图上的一个位置点</p>
+                    </a>
+                    <a href="common/MovableObjectNode.html" class="class-card">
+                        <h3>MovableObjectNode</h3>
+                        <p>可移动对象节点，管理单位在地图上的移动</p>
+                    </a>
+                    <a href="common/Notice.html" class="class-card">
+                        <h3>Notice</h3>
+                        <p>通知类，实现观察者模式的消息分发</p>
+                    </a>
+                    <a href="common/PassageObjectModel.html" class="class-card">
+                        <h3>PassageObjectModel</h3>
+                        <p>通道对象模型，管理通道节点和门</p>
+                    </a>
+                    <a href="common/UncontrollableAction.html" class="class-card">
+                        <h3>UncontrollableAction</h3>
+                        <p>不可控行动基类，用于创建不可控的单位行动</p>
+                    </a>
+                    <a href="common/UnitBuf.html" class="class-card">
+                        <h3>UnitBuf</h3>
+                        <p>单位Buff基类，用于创建自定义Buff效果</p>
+                    </a>
+                    <a href="common/UnitStatBuf.html" class="class-card">
+                        <h3>UnitStatBuf</h3>
+                        <p>单位属性Buff类，继承自UnitBuf，用于修改单位属性</p>
+                    </a>
+                    <a href="model/WeaponModel.html" class="class-card">
+                        <h3>WeaponModel</h3>
+                        <p>代表武器</p>
+                    </a>
+                    <a href="manager/WorkerManager.html" class="class-card">
+                        <h3>WorkerManager</h3>
+                        <p>管理所有Worker模型</p>
+                    </a>
+                    <a href="model/WorkerModel.html" class="class-card">
+                        <h3>WorkerModel</h3>
+                        <p>Worker的基类模型</p>
+                    </a>
+            </div>
+            </section>
+
+            <section id="managers" class="section">
+                <h2>Manager 类</h2>
+                <p class="section-desc">Manager 类负责管理游戏中的各种系统和功能，包括角色管理、UI管理、音频管理等。</p>
+                
+                <div class="class-grid">
+                    <a href="manager/AgentManager.html" class="class-card">
+                        <h3>AgentManager</h3>
+                        <p>管理所有Agent模型的创建、激活和停用</p>
+                    </a>
+                    <a href="manager/AnimatorManager.html" class="class-card">
+                        <h3>AnimatorManager</h3>
+                        <p>管理动画器</p>
+                    </a>
+                    <a href="manager/ArrowManager.html" class="class-card">
+                        <h3>ArrowManager</h3>
+                        <p>管理箭头指示器</p>
+                    </a>
+                    <a href="manager/BgmManager.html" class="class-card">
+                        <h3>BgmManager</h3>
+                        <p>管理背景音乐</p>
+                    </a>
+                    <a href="manager/CreatureManager.html" class="class-card">
+                        <h3>CreatureManager</h3>
+                        <p>管理所有Creature模型的生成和状态</p>
+                    </a>
+                    <a href="manager/CreatureOverloadManager.html" class="class-card">
+                        <h3>CreatureOverloadManager</h3>
+                        <p>管理Creature过载</p>
+                    </a>
+                    <a href="manager/CursorManager.html" class="class-card">
+                        <h3>CursorManager</h3>
+                        <p>管理鼠标光标</p>
+                    </a>
+                    <a href="manager/ExplodeGutManager.html" class="class-card">
+                        <h3>ExplodeGutManager</h3>
+                        <p>管理爆炸效果</p>
+                    </a>
+                    <a href="manager/GameManager.html" class="class-card">
+                        <h3>GameManager</h3>
+                        <p>管理游戏状态、开始和结束阶段、暂停和恢复游戏</p>
+                    </a>
+                    <a href="manager/GlobalAudioManager.html" class="class-card">
+                        <h3>GlobalAudioManager</h3>
+                        <p>全局音频管理器</p>
+                    </a>
+                    <a href="manager/GlobalGameManager.html" class="class-card">
+                        <h3>GlobalGameManager</h3>
+                        <p>全局游戏管理器</p>
+                    </a>
+                    <a href="manager/HierarchicalDataManager.html" class="class-card">
+                        <h3>HierarchicalDataManager</h3>
+                        <p>管理层次数据</p>
+                    </a>
+                    <a href="manager/IconManager.html" class="class-card">
+                        <h3>IconManager</h3>
+                        <p>管理图标</p>
+                    </a>
+                    <a href="manager/IsolateDescManager.html" class="class-card">
+                        <h3>IsolateDescManager</h3>
+                        <p>管理隔离描述</p>
+                    </a>
+                    <a href="manager/ItemObjectManager.html" class="class-card">
+                        <h3>ItemObjectManager</h3>
+                        <p>管理物品对象</p>
+                    </a>
+                    <a href="manager/LocalAudioManager.html" class="class-card">
+                        <h3>LocalAudioManager</h3>
+                        <p>本地音频管理器</p>
+                    </a>
+                    <a href="manager/MissionManager.html" class="class-card">
+                        <h3>MissionManager</h3>
+                        <p>管理任务系统</p>
+                    </a>
+                    <a href="manager/ObserveInfoManager.html" class="class-card">
+                        <h3>ObserveInfoManager</h3>
+                        <p>管理观察信息</p>
+                    </a>
+                    <a href="manager/OfficerManager.html" class="class-card">
+                        <h3>OfficerManager</h3>
+                        <p>管理所有Officer模型</p>
+                    </a>
+                    <a href="manager/OrdealManager.html" class="class-card">
+                        <h3>OrdealManager</h3>
+                        <p>管理试炼事件</p>
+                    </a>
+                    <a href="manager/OverlappedUIManager.html" class="class-card">
+                        <h3>OverlappedUIManager</h3>
+                        <p>管理重叠UI</p>
+                    </a>
+                    <a href="manager/OverlayManager.html" class="class-card">
+                        <h3>OverlayManager</h3>
+                        <p>管理覆盖层</p>
+                    </a>
+                    <a href="manager/RabbitManager.html" class="class-card">
+                        <h3>RabbitManager</h3>
+                        <p>管理Rabbit团队</p>
+                    </a>
+                    <a href="manager/RandomEventManager.html" class="class-card">
+                        <h3>RandomEventManager</h3>
+                        <p>管理随机事件</p>
+                    </a>
+                    <a href="manager/SefiraBossManager.html" class="class-card">
+                        <h3>SefiraBossManager</h3>
+                        <p>管理Sefira Boss</p>
+                    </a>
+                    <a href="manager/SefiraCharacterManager.html" class="class-card">
+                        <h3>SefiraCharacterManager</h3>
+                        <p>管理Sefira角色</p>
+                    </a>
+                    <a href="manager/SefiraManager.html" class="class-card">
+                        <h3>SefiraManager</h3>
+                        <p>管理所有Sefira区域</p>
+                    </a>
+                    <a href="manager/SpecialEventManager.html" class="class-card">
+                        <h3>SpecialEventManager</h3>
+                        <p>管理特殊事件</p>
+                    </a>
+                    <a href="manager/SpecialUnitClickManager.html" class="class-card">
+                        <h3>SpecialUnitClickManager</h3>
+                        <p>管理特殊单位点击</p>
+                    </a>
+                    <a href="manager/SpriteLoadManager.html" class="class-card">
+                        <h3>SpriteLoadManager</h3>
+                        <p>管理精灵加载</p>
+                    </a>
+                    <a href="manager/StandingItemManager.html" class="class-card">
+                        <h3>StandingItemManager</h3>
+                        <p>管理站立物品</p>
+                    </a>
+                    <a href="manager/SteamManager.html" class="class-card">
+                        <h3>SteamManager</h3>
+                        <p>管理Steam集成</p>
+                    </a>
+                    <a href="manager/StoryMemoryManager.html" class="class-card">
+                        <h3>StoryMemoryManager</h3>
+                        <p>管理故事记忆</p>
+                    </a>
+                    <a href="manager/TutorialManager.html" class="class-card">
+                        <h3>TutorialManager</h3>
+                        <p>管理教程系统</p>
+                    </a>
+                    <a href="manager/UIActivateManager.html" class="class-card">
+                        <h3>UIActivateManager</h3>
+                        <p>管理UI激活状态</p>
+                    </a>
+                    <a href="manager/UIColorManager.html" class="class-card">
+                        <h3>UIColorManager</h3>
+                        <p>管理UI颜色</p>
+                    </a>
+                    <a href="manager/UIEffectManager.html" class="class-card">
+                        <h3>UIEffectManager</h3>
+                        <p>管理UI效果</p>
+                    </a>
+                    <a href="manager/UnitMouseEventManager.html" class="class-card">
+                        <h3>UnitMouseEventManager</h3>
+                        <p>管理单位鼠标事件</p>
+                    </a>
+                    <a href="manager/WorkerManager.html" class="class-card">
+                        <h3>WorkerManager</h3>
+                        <p>管理所有Worker模型</p>
+                    </a>
+                    <a href="manager/WorkerSpriteManager.html" class="class-card">
+                        <h3>WorkerSpriteManager</h3>
+                        <p>管理Worker精灵</p>
+                    </a>
+            </div>
+            </section>
+
+            <section id="models" class="section">
+                <h2>Model 类</h2>
+                <p class="section-desc">Model 类代表游戏中的各种数据模型，包括角色模型、物品模型、地图对象模型等。</p>
+                
+                <div class="class-grid">
+                    <a href="model/AgentModel.html" class="class-card">
+                        <h3>AgentModel</h3>
+                        <p>代表游戏中的Agent，包括属性、技能和行为</p>
+                    </a>
+                    <a href="model/AgentModelEventHandler.html" class="class-card">
+                        <h3>AgentModelEventHandler</h3>
+                        <p>Agent模型事件处理器</p>
+                    </a>
+                    <a href="model/ArmorModel.html" class="class-card">
+                        <h3>ArmorModel</h3>
+                        <p>代表护甲</p>
+                    </a>
+                    <a href="model/BloodMapObjectModel.html" class="class-card">
+                        <h3>BloodMapObjectModel</h3>
+                        <p>代表血迹地图对象</p>
+                    </a>
+                    <a href="model/CharacterResourceDataModel.html" class="class-card">
+                        <h3>CharacterResourceDataModel</h3>
+                        <p>代表角色资源数据</p>
+                    </a>
+                    <a href="model/ChildCreatureModel.html" class="class-card">
+                        <h3>ChildCreatureModel</h3>
+                        <p>代表子Creature</p>
+                    </a>
+                    <a href="model/CreatureModel.html" class="class-card">
+                        <h3>CreatureModel</h3>
+                        <p>代表游戏中的Creature</p>
+                    </a>
+                    <a href="model/CreatureObserveInfoModel.html" class="class-card">
+                        <h3>CreatureObserveInfoModel</h3>
+                        <p>代表Creature观察信息</p>
+                    </a>
+                    <a href="model/DoorObjectModel.html" class="class-card">
+                        <h3>DoorObjectModel</h3>
+                        <p>代表门对象</p>
+                    </a>
+                    <a href="model/EGOgiftModel.html" class="class-card">
+                        <h3>EGOgiftModel</h3>
+                        <p>代表异想体工作时概率获得的饰品</p>
+                    </a>
+                    <a href="model/ElevatorPassageModel.html" class="class-card">
+                        <h3>ElevatorPassageModel</h3>
+                        <p>代表电梯通道</p>
+                    </a>
+                    <a href="model/EnergyModel.html" class="class-card">
+                        <h3>EnergyModel</h3>
+                        <p>代表能量数据</p>
+                    </a>
+                    <a href="model/EquipmentModel.html" class="class-card">
+                        <h3>EquipmentModel</h3>
+                        <p>代表装备</p>
+                    </a>
+                    <a href="model/EventCreatureModel.html" class="class-card">
+                        <h3>EventCreatureModel</h3>
+                        <p>代表事件Creature</p>
+                    </a>
+                    <a href="model/GameSettingModel.html" class="class-card">
+                        <h3>GameSettingModel</h3>
+                        <p>代表游戏设置</p>
+                    </a>
+                    <a href="model/GlobalEtcDataModel.html" class="class-card">
+                        <h3>GlobalEtcDataModel</h3>
+                        <p>代表全局其他数据</p>
+                    </a>
+                    <a href="model/IMouseCommandTargetModel.html" class="class-card">
+                        <h3>IMouseCommandTargetModel</h3>
+                        <p>鼠标命令目标模型接口</p>
+                    </a>
+                    <a href="model/InventoryModel.html" class="class-card">
+                        <h3>InventoryModel</h3>
+                        <p>代表库存</p>
+                    </a>
+                    <a href="model/LocalizeTextDataModel.html" class="class-card">
+                        <h3>LocalizeTextDataModel</h3>
+                        <p>代表本地化文本数据</p>
+                    </a>
+                    <a href="model/MapObjectModel.html" class="class-card">
+                        <h3>MapObjectModel</h3>
+                        <p>代表地图对象</p>
+                    </a>
+                    <a href="model/MoneyModel.html" class="class-card">
+                        <h3>MoneyModel</h3>
+                        <p>代表金钱数据</p>
+                    </a>
+                    <a href="model/ObjectModelBase.html" class="class-card">
+                        <h3>ObjectModelBase</h3>
+                        <p>对象模型的基类</p>
+                    </a>
+                    <a href="model/OfficerModel.html" class="class-card">
+                        <h3>OfficerModel</h3>
+                        <p>代表游戏中的Officer</p>
+                    </a>
+                    <a href="model/OrdealCreatureModel.html" class="class-card">
+                        <h3>OrdealCreatureModel</h3>
+                        <p>代表试炼Creature</p>
+                    </a>
+                    <a href="model/PassageObjectModel.html" class="class-card">
+                        <h3>PassageObjectModel</h3>
+                        <p>代表通道对象</p>
+                    </a>
+                    <a href="model/PlayerModel.html" class="class-card">
+                        <h3>PlayerModel</h3>
+                        <p>代表玩家数据</p>
+                    </a>
+                    <a href="model/ProjectileModel.html" class="class-card">
+                        <h3>ProjectileModel</h3>
+                        <p>代表投射物</p>
+                    </a>
+                    <a href="model/RabbitModel.html" class="class-card">
+                        <h3>RabbitModel</h3>
+                        <p>代表Rabbit团队成员</p>
+                    </a>
+                    <a href="model/ResearchDataModel.html" class="class-card">
+                        <h3>ResearchDataModel</h3>
+                        <p>代表研究数据</p>
+                    </a>
+                    <a href="model/ResearchItemModel.html" class="class-card">
+                        <h3>ResearchItemModel</h3>
+                        <p>代表研究项目</p>
+                    </a>
+                    <a href="model/SefiraBossCreatureModel.html" class="class-card">
+                        <h3>SefiraBossCreatureModel</h3>
+                        <p>代表Sefira Boss Creature</p>
+                    </a>
+                    <a href="model/SefiraCharacterModel.html" class="class-card">
+                        <h3>SefiraCharacterModel</h3>
+                        <p>代表Sefira角色</p>
+                    </a>
+                    <a href="model/StandingItemModel.html" class="class-card">
+                        <h3>StandingItemModel</h3>
+                        <p>代表站立物品</p>
+                    </a>
+                    <a href="model/StoryStaticDataModel.html" class="class-card">
+                        <h3>StoryStaticDataModel</h3>
+                        <p>代表故事静态数据</p>
+                    </a>
+                    <a href="model/StoryVariablesModel.html" class="class-card">
+                        <h3>StoryVariablesModel</h3>
+                        <p>代表故事变量</p>
+                    </a>
+                    <a href="model/UnitModel.html" class="class-card">
+                        <h3>UnitModel</h3>
+                        <p>所有单位的基类模型</p>
+                    </a>
+                    <a href="model/WeaponModel.html" class="class-card">
+                        <h3>WeaponModel</h3>
+                        <p>代表武器</p>
+                    </a>
+                    <a href="model/WorkerModel.html" class="class-card">
+                        <h3>WorkerModel</h3>
+                        <p>Worker的基类模型</p>
+                    </a>
+            </div>
+            </section>
+            
+            <section id="bases" class="section">
+                <h2>Base 类</h2>
+                <p class="section-desc">Base 类是游戏中各种基础类的基类，提供了通用的功能和接口。</p>
+                
+                <div class="class-grid">
+                    <a href="base/ActionClassBase.html" class="class-card">
+                        <h3>ActionClassBase</h3>
+                        <p>Action类的基类</p>
+                    </a>
+                    <a href="base/BinahBossBase.html" class="class-card">
+                        <h3>BinahBossBase</h3>
+                        <p>Binah Boss的基类</p>
+                    </a>
+                    <a href="base/BirdCreatureBase.html" class="class-card">
+                        <h3>BirdCreatureBase</h3>
+                        <p>鸟类Creature的基类</p>
+                    </a>
+                    <a href="base/BossEggBase.html" class="class-card">
+                        <h3>BossEggBase</h3>
+                        <p>Boss Egg的基类</p>
+                    </a>
+                    <a href="base/CensoredCreatureBase.html" class="class-card">
+                        <h3>CensoredCreatureBase</h3>
+                        <p>审查Creature的基类</p>
+                    </a>
+                    <a href="base/ChesedBossBase.html" class="class-card">
+                        <h3>ChesedBossBase</h3>
+                        <p>Chesed Boss的基类</p>
+                    </a>
+                    <a href="base/ChokhmahBossBase.html" class="class-card">
+                        <h3>ChokhmahBossBase</h3>
+                        <p>Chokhmah Boss的基类</p>
+                    </a>
+                    <a href="base/CreatureBase.html" class="class-card">
+                        <h3>CreatureBase</h3>
+                        <p>Creature的基类</p>
+                    </a>
+                    <a href="base/EquipmentScriptBase.html" class="class-card">
+                        <h3>EquipmentScriptBase</h3>
+                        <p>装备脚本的基类</p>
+                    </a>
+                    <a href="base/EventBase.html" class="class-card">
+                        <h3>EventBase</h3>
+                        <p>事件的基类</p>
+                    </a>
+                    <a href="base/GeburahBossBase.html" class="class-card">
+                        <h3>GeburahBossBase</h3>
+                        <p>Geburah Boss的基类</p>
+                    </a>
+                    <a href="base/HodBossBase.html" class="class-card">
+                        <h3>HodBossBase</h3>
+                        <p>Hod Boss的基类</p>
+                    </a>
+                    <a href="base/MalkutBossBase.html" class="class-card">
+                        <h3>MalkutBossBase</h3>
+                        <p>Malkut Boss的基类</p>
+                    </a>
+                    <a href="base/NetzachBossBase.html" class="class-card">
+                        <h3>NetzachBossBase</h3>
+                        <p>Netzach Boss的基类</p>
+                    </a>
+                    <a href="base/ObjectModelBase.html" class="class-card">
+                        <h3>ObjectModelBase</h3>
+                        <p>对象模型的基类</p>
+                    </a>
+                    <a href="base/OrdealBase.html" class="class-card">
+                        <h3>OrdealBase</h3>
+                        <p>试炼的基类</p>
+                    </a>
+                    <a href="base/RandomEventBase.html" class="class-card">
+                        <h3>RandomEventBase</h3>
+                        <p>随机事件的基类</p>
+                    </a>
+                    <a href="base/SefiraBossBase.html" class="class-card">
+                        <h3>SefiraBossBase</h3>
+                        <p>Sefira Boss的基类</p>
+                    </a>
+                    <a href="base/StandingItemScriptBase.html" class="class-card">
+                        <h3>StandingItemScriptBase</h3>
+                        <p>站立物品脚本的基类</p>
+                    </a>
+                    <a href="base/TipherethBossBase.html" class="class-card">
+                        <h3>TipherethBossBase</h3>
+                        <p>Tiphereth Boss的基类</p>
+                    </a>
+                    <a href="base/YesodBossBase.html" class="class-card">
+                        <h3>YesodBossBase</h3>
+                        <p>Yesod Boss的基类</p>
+                    </a>
+                    <a href="base/YinAndYangBase.html" class="class-card">
+                        <h3>YinAndYangBase</h3>
+                        <p>阴阳的基类</p>
+                    </a>
+            </div>
+            </section>
+            
+            <section id="animscripts" class="section">
+                <h2>AnimScript 类</h2>
+                <p class="section-desc">AnimScript 类负责游戏中的动画控制和管理。</p>
+                
+                <div class="class-grid">
+                    <a href="animscript/AnimScript.html" class="class-card">
+                        <h3>AnimScript</h3>
+                        <p>动画脚本的基类</p>
+                    </a>
+                    <a href="animscript/CreatureAnimScript.html" class="class-card">
+                        <h3>CreatureAnimScript</h3>
+                        <p>Creature动画脚本</p>
+                    </a>
+                    <a href="animscript/MagicalGirlResetAnimScript.html" class="class-card">
+                        <h3>MagicalGirlResetAnimScript</h3>
+                        <p>魔法少女重置动画脚本</p>
+                    </a>
+                    <a href="animscript/MapFloatAnimScript.html" class="class-card">
+                        <h3>MapFloatAnimScript</h3>
+                        <p>地图浮动动画脚本</p>
+                    </a>
+            </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 脑叶公司Mod开发文档 by 小鲨鱼</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

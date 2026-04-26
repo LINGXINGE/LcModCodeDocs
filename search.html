@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <base href="/LcModCodeDocs/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - 脑叶公司Mod开发文档</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 1.1em;
+            background-color: var(--color-search-bg);
+            color: var(--color-search-text);
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(33, 128, 140, 0.2);
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            padding: 20px;
+            margin-bottom: 15px;
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .result-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-item h3 {
+            margin: 0 0 10px;
+            color: var(--color-section-title);
+        }
+
+        .result-item h3 a {
+            color: var(--color-section-title);
+            text-decoration: none;
+        }
+
+        .result-item h3 a:hover {
+            color: var(--color-primary);
+        }
+
+        .result-item .description {
+            color: var(--color-section-desc);
+            font-size: 0.95em;
+        }
+
+        .result-item .category {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>脑叶公司Mod开发文档</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">返回首页</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                <span id="theme-icon">深色</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">快速导航</div>
+            <ul class="sidebar-nav">
+                <li><a href="index.html">返回首页</a></li>
+                <li><a href="index.html#common">开发常用基类</a></li>
+                <li><a href="index.html#managers">Manager 类</a></li>
+                <li><a href="index.html#models">Model 类</a></li>
+                <li><a href="index.html#bases">Base 类</a></li>
+                <li><a href="index.html#animscripts">AnimScript 类</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="search-container">
+                <div class="detail-header">
+                    <h1>搜索</h1>
+                    <p class="description">在所有类中搜索</p>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="输入类名进行搜索..." autofocus>
+                </div>
+
+                <div class="search-results" id="search-results">
+                    <div class="no-results">请输入搜索关键词</div>
+                </div>
+            </div>
+
+            <footer>
+        <p>&copy; 脑叶公司Mod开发文档 by 小鲨鱼</p>
+    </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 所有类数据
+        const allClasses = {
+            common: [
+                { name: 'UnitBuf', file: 'common/UnitBuf.html', desc: '单位Buff基类，用于创建自定义Buff效果' },
+                { name: 'UnitStatBuf', file: 'common/UnitStatBuf.html', desc: '单位属性Buff类，继承自UnitBuf，用于修改单位属性' },
+                { name: 'UncontrollableAction', file: 'common/UncontrollableAction.html', desc: '不可控行动基类，用于创建不可控的单位行动' },
+                { name: 'ChildCreatureModel', file: 'common/ChildCreatureModel.html', desc: '子异想体模型类，用于创建异想体的子单位' },
+                { name: 'MapGraph', file: 'common/MapGraph.html', desc: '地图图类，管理地图节点和路径搜索' },
+                { name: 'MapNode', file: 'common/MapNode.html', desc: '地图节点类，代表地图上的一个位置点' },
+                { name: 'MapEdge', file: 'common/MapEdge.html', desc: '地图边类，连接两个地图节点' },
+                { name: 'DamageInfo', file: 'common/DamageInfo.html', desc: '伤害信息类，包含伤害类型和数值' },
+                { name: 'MovableObjectNode', file: 'common/MovableObjectNode.html', desc: '可移动对象节点，管理单位在地图上的移动' },
+                { name: 'CommandWindow', file: 'common/CommandWindow.html', desc: '命令窗口类，管理职员命令界面' },
+                { name: 'IObserver', file: 'common/IObserver.html', desc: '观察者接口，用于实现观察者模式' },
+                { name: 'Notice', file: 'common/Notice.html', desc: '通知类，实现观察者模式的消息分发' },
+                { name: 'PassageObjectModel', file: 'common/PassageObjectModel.html', desc: '通道对象模型，管理通道节点和门' }
+            ],
+            managers: [
+                { name: 'AgentManager', file: 'manager/AgentManager.html', desc: '管理所有Agent模型的创建、激活和停用' },
+                { name: 'CreatureManager', file: 'manager/CreatureManager.html', desc: '管理所有Creature模型的生成和状态' },
+                { name: 'GameManager', file: 'manager/GameManager.html', desc: '管理游戏状态、开始和结束阶段、暂停和恢复游戏' },
+                { name: 'GlobalGameManager', file: 'manager/GlobalGameManager.html', desc: '全局游戏管理器' },
+                { name: 'OfficerManager', file: 'manager/OfficerManager.html', desc: '管理所有Officer模型' },
+                { name: 'WorkerManager', file: 'manager/WorkerManager.html', desc: '管理所有Worker模型' },
+                { name: 'RabbitManager', file: 'manager/RabbitManager.html', desc: '管理Rabbit团队' },
+                { name: 'SefiraManager', file: 'manager/SefiraManager.html', desc: '管理所有Sefira区域' },
+                { name: 'MissionManager', file: 'manager/MissionManager.html', desc: '管理任务系统' },
+                { name: 'OrdealManager', file: 'manager/OrdealManager.html', desc: '管理试炼事件' },
+                { name: 'BgmManager', file: 'manager/BgmManager.html', desc: '管理背景音乐' },
+                { name: 'GlobalAudioManager', file: 'manager/GlobalAudioManager.html', desc: '全局音频管理器' },
+                { name: 'LocalAudioManager', file: 'manager/LocalAudioManager.html', desc: '本地音频管理器' },
+                { name: 'UIEffectManager', file: 'manager/UIEffectManager.html', desc: '管理UI效果' },
+                { name: 'TutorialManager', file: 'manager/TutorialManager.html', desc: '管理教程系统' },
+                { name: 'RandomEventManager', file: 'manager/RandomEventManager.html', desc: '管理随机事件' },
+                { name: 'SpecialUnitClickManager', file: 'manager/SpecialUnitClickManager.html', desc: '管理特殊单位点击' },
+                { name: 'WorkerSpriteManager', file: 'manager/WorkerSpriteManager.html', desc: '管理Worker精灵' },
+                { name: 'CreatureOverloadManager', file: 'manager/CreatureOverloadManager.html', desc: '管理Creature过载' },
+                { name: 'OverlayManager', file: 'manager/OverlayManager.html', desc: '管理覆盖层' },
+                { name: 'UnitMouseEventManager', file: 'manager/UnitMouseEventManager.html', desc: '管理单位鼠标事件' },
+                { name: 'SpriteLoadManager', file: 'manager/SpriteLoadManager.html', desc: '管理精灵加载' },
+                { name: 'UIColorManager', file: 'manager/UIColorManager.html', desc: '管理UI颜色' },
+                { name: 'UIActivateManager', file: 'manager/UIActivateManager.html', desc: '管理UI激活状态' },
+                { name: 'OverlappedUIManager', file: 'manager/OverlappedUIManager.html', desc: '管理重叠UI' },
+                { name: 'IsolateDescManager', file: 'manager/IsolateDescManager.html', desc: '管理隔离描述' },
+                { name: 'StandingItemManager', file: 'manager/StandingItemManager.html', desc: '管理站立物品' },
+                { name: 'IconManager', file: 'manager/IconManager.html', desc: '管理图标' },
+                { name: 'ItemObjectManager', file: 'manager/ItemObjectManager.html', desc: '管理物品对象' },
+                { name: 'SefiraBossManager', file: 'manager/SefiraBossManager.html', desc: '管理Sefira Boss' },
+                { name: 'CursorManager', file: 'manager/CursorManager.html', desc: '管理鼠标光标' },
+                { name: 'ArrowManager', file: 'manager/ArrowManager.html', desc: '管理箭头指示器' },
+                { name: 'SteamManager', file: 'manager/SteamManager.html', desc: '管理Steam集成' },
+                { name: 'SpecialEventManager', file: 'manager/SpecialEventManager.html', desc: '管理特殊事件' },
+                { name: 'StoryMemoryManager', file: 'manager/StoryMemoryManager.html', desc: '管理故事记忆' },
+                { name: 'SefiraCharacterManager', file: 'manager/SefiraCharacterManager.html', desc: '管理Sefira角色' },
+                { name: 'ExplodeGutManager', file: 'manager/ExplodeGutManager.html', desc: '管理爆炸效果' },
+                { name: 'ObserveInfoManager', file: 'manager/ObserveInfoManager.html', desc: '管理观察信息' },
+                { name: 'AnimatorManager', file: 'manager/AnimatorManager.html', desc: '管理动画器' },
+                { name: 'HierarchicalDataManager', file: 'manager/HierarchicalDataManager.html', desc: '管理层次数据' }
+            ],
+            models: [
+                { name: 'AgentModel', file: 'model/AgentModel.html', desc: '代表游戏中的Agent，包括属性、技能和行为' },
+                { name: 'WorkerModel', file: 'model/WorkerModel.html', desc: 'Worker的基类模型' },
+                { name: 'CreatureModel', file: 'model/CreatureModel.html', desc: '代表游戏中的Creature' },
+                { name: 'PlayerModel', file: 'model/PlayerModel.html', desc: '代表玩家数据' },
+                { name: 'UnitModel', file: 'model/UnitModel.html', desc: '所有单位的基类模型' },
+                { name: 'WeaponModel', file: 'model/WeaponModel.html', desc: '代表武器' },
+                { name: 'ArmorModel', file: 'model/ArmorModel.html', desc: '代表护甲' },
+                { name: 'OfficerModel', file: 'model/OfficerModel.html', desc: '代表游戏中的Officer' },
+                { name: 'RabbitModel', file: 'model/RabbitModel.html', desc: '代表Rabbit团队成员' },
+                { name: 'EquipmentModel', file: 'model/EquipmentModel.html', desc: '代表装备' },
+                { name: 'MapObjectModel', file: 'model/MapObjectModel.html', desc: '代表地图对象' },
+                { name: 'ProjectileModel', file: 'model/ProjectileModel.html', desc: '代表投射物' },
+                { name: 'PassageObjectModel', file: 'model/PassageObjectModel.html', desc: '代表通道对象' },
+                { name: 'OrdealCreatureModel', file: 'model/OrdealCreatureModel.html', desc: '代表试炼Creature' },
+                { name: 'IMouseCommandTargetModel', file: 'model/IMouseCommandTargetModel.html', desc: '鼠标命令目标模型接口' },
+                { name: 'ObjectModelBase', file: 'model/ObjectModelBase.html', desc: '对象模型的基类' },
+                { name: 'MoneyModel', file: 'model/MoneyModel.html', desc: '代表金钱数据' },
+                { name: 'BloodMapObjectModel', file: 'model/BloodMapObjectModel.html', desc: '代表血迹地图对象' },
+                { name: 'GlobalEtcDataModel', file: 'model/GlobalEtcDataModel.html', desc: '代表全局其他数据' },
+                { name: 'EventCreatureModel', file: 'model/EventCreatureModel.html', desc: '代表事件Creature' },
+                { name: 'StoryVariablesModel', file: 'model/StoryVariablesModel.html', desc: '代表故事变量' },
+                { name: 'EnergyModel', file: 'model/EnergyModel.html', desc: '代表能量数据' },
+                { name: 'StoryStaticDataModel', file: 'model/StoryStaticDataModel.html', desc: '代表故事静态数据' },
+                { name: 'InventoryModel', file: 'model/InventoryModel.html', desc: '代表库存' },
+                { name: 'CharacterResourceDataModel', file: 'model/CharacterResourceDataModel.html', desc: '代表角色资源数据' },
+                { name: 'ElevatorPassageModel', file: 'model/ElevatorPassageModel.html', desc: '代表电梯通道' },
+                { name: 'DoorObjectModel', file: 'model/DoorObjectModel.html', desc: '代表门对象' },
+                { name: 'LocalizeTextDataModel', file: 'model/LocalizeTextDataModel.html', desc: '代表本地化文本数据' },
+                { name: 'StandingItemModel', file: 'model/StandingItemModel.html', desc: '代表站立物品' },
+                { name: 'SefiraCharacterModel', file: 'model/SefiraCharacterModel.html', desc: '代表Sefira角色' },
+                { name: 'EGOgiftModel', file: 'model/EGOgiftModel.html', desc: '代表EGO礼物' },
+                { name: 'CreatureObserveInfoModel', file: 'model/CreatureObserveInfoModel.html', desc: '代表Creature观察信息' },
+                { name: 'SefiraBossCreatureModel', file: 'model/SefiraBossCreatureModel.html', desc: '代表Sefira Boss Creature' },
+                { name: 'ResearchDataModel', file: 'model/ResearchDataModel.html', desc: '代表研究数据' },
+                { name: 'ResearchItemModel', file: 'model/ResearchItemModel.html', desc: '代表研究项目' },
+                { name: 'ChildCreatureModel', file: 'model/ChildCreatureModel.html', desc: '代表子Creature' },
+                { name: 'AgentModelEventHandler', file: 'model/AgentModelEventHandler.html', desc: 'Agent模型事件处理器' },
+                { name: 'GameSettingModel', file: 'model/GameSettingModel.html', desc: '代表游戏设置' }
+            ],
+            bases: [
+                { name: 'ActionClassBase', file: 'base/ActionClassBase.html', desc: 'Action类的基类，提供动作执行的基础功能' },
+                { name: 'ObjectModelBase', file: 'base/ObjectModelBase.html', desc: '对象模型的基类，提供对象的基本属性和方法' },
+                { name: 'ChesedBossBase', file: 'base/ChesedBossBase.html', desc: 'Chesed Boss的基类，提供Chesed区域Boss的基础功能' },
+                { name: 'BinahBossBase', file: 'base/BinahBossBase.html', desc: 'Binah Boss的基类，提供Binah区域Boss的基础功能' },
+                { name: 'SefiraBossBase', file: 'base/SefiraBossBase.html', desc: 'Sefira Boss的基类，提供所有Sefira区域Boss的基础功能' },
+                { name: 'BossEggBase', file: 'base/BossEggBase.html', desc: 'Boss Egg的基类，提供Boss蛋的基础功能' },
+                { name: 'YesodBossBase', file: 'base/YesodBossBase.html', desc: 'Yesod Boss的基类，提供Yesod区域Boss的基础功能' },
+                { name: 'TipherethBossBase', file: 'base/TipherethBossBase.html', desc: 'Tiphereth Boss的基类，提供Tiphereth区域Boss的基础功能' },
+                { name: 'NetzachBossBase', file: 'base/NetzachBossBase.html', desc: 'Netzach Boss的基类，提供Netzach区域Boss的基础功能' },
+                { name: 'RandomEventBase', file: 'base/RandomEventBase.html', desc: '随机事件的基类，提供随机事件的基础功能' },
+                { name: 'MalkutBossBase', file: 'base/MalkutBossBase.html', desc: 'Malkut Boss的基类，提供Malkut区域Boss的基础功能' },
+                { name: 'HodBossBase', file: 'base/HodBossBase.html', desc: 'Hod Boss的基类，提供Hod区域Boss的基础功能' },
+                { name: 'GeburahBossBase', file: 'base/GeburahBossBase.html', desc: 'Geburah Boss的基类，提供Geburah区域Boss的基础功能' },
+                { name: 'EventBase', file: 'base/EventBase.html', desc: '事件的基类，提供事件的基础功能' },
+                { name: 'ChokhmahBossBase', file: 'base/ChokhmahBossBase.html', desc: 'Chokhmah Boss的基类，提供Chokhmah区域Boss的基础功能' },
+                { name: 'OrdealBase', file: 'base/OrdealBase.html', desc: '试炼的基类，提供试炼的基础功能' },
+                { name: 'StandingItemScriptBase', file: 'base/StandingItemScriptBase.html', desc: '站立物品脚本的基类，提供站立物品的基础功能' },
+                { name: 'EquipmentScriptBase', file: 'base/EquipmentScriptBase.html', desc: '装备脚本的基类，提供装备的基础功能' },
+                { name: 'CensoredCreatureBase', file: 'base/CensoredCreatureBase.html', desc: '审查Creature的基类，提供审查Creature的基础功能' },
+                { name: 'YinAndYangBase', file: 'base/YinAndYangBase.html', desc: '阴阳的基类，提供阴阳系统的基础功能' },
+                { name: 'CreatureBase', file: 'base/CreatureBase.html', desc: 'Creature的基类，提供Creature的基础功能' },
+                { name: 'BirdCreatureBase', file: 'base/BirdCreatureBase.html', desc: '鸟类Creature的基类，提供鸟类Creature的基础功能' }
+            ],
+            animscripts: [
+                { name: 'AnimScript', file: 'animscript/AnimScript.html', desc: '动画脚本的基类，提供动画控制的基础功能' },
+                { name: 'CreatureAnimScript', file: 'animscript/CreatureAnimScript.html', desc: 'Creature动画脚本，控制Creature的动画效果' },
+                { name: 'MapFloatAnimScript', file: 'animscript/MapFloatAnimScript.html', desc: '地图浮动动画脚本，控制地图元素的浮动效果' },
+                { name: 'MagicalGirlResetAnimScript', file: 'animscript/MagicalGirlResetAnimScript.html', desc: '魔法少女重置动画脚本，控制魔法少女的重置动画效果' }
+            ]
+        };
+
+        function searchClasses(searchTerm) {
+            const resultsContainer = document.getElementById('search-results');
+            
+            if (!searchTerm) {
+                resultsContainer.innerHTML = '<div class="no-results">请输入搜索关键词</div>';
+                return;
+            }
+
+            const term = searchTerm.toLowerCase();
+            let results = [];
+            let categories = {
+                '开发常用基类': [],
+                'Manager 类': [],
+                'Model 类': [],
+                'Base 类': [],
+                'AnimScript 类': []
+            };
+
+            // 搜索开发常用基类
+            allClasses.common.forEach(cls => {
+                if (cls.name.toLowerCase().includes(term) || cls.desc.toLowerCase().includes(term)) {
+                    categories['开发常用基类'].push(cls);
+                }
+            });
+
+            // 搜索Manager类
+            allClasses.managers.forEach(cls => {
+                if (cls.name.toLowerCase().includes(term) || cls.desc.toLowerCase().includes(term)) {
+                    categories['Manager 类'].push(cls);
+                }
+            });
+
+            // 搜索Model类
+            allClasses.models.forEach(cls => {
+                if (cls.name.toLowerCase().includes(term) || cls.desc.toLowerCase().includes(term)) {
+                    categories['Model 类'].push(cls);
+                }
+            });
+
+            // 搜索Base类
+            allClasses.bases.forEach(cls => {
+                if (cls.name.toLowerCase().includes(term) || cls.desc.toLowerCase().includes(term)) {
+                    categories['Base 类'].push(cls);
+                }
+            });
+
+            // 搜索AnimScript类
+            allClasses.animscripts.forEach(cls => {
+                if (cls.name.toLowerCase().includes(term) || cls.desc.toLowerCase().includes(term)) {
+                    categories['AnimScript 类'].push(cls);
+                }
+            });
+
+            // 生成结果HTML
+            let html = '';
+            for (const [category, items] of Object.entries(categories)) {
+                if (items.length > 0) {
+                    html += `<h2 style="margin: 20px 0 15px; color: var(--color-section-title);">${category} (${items.length})</h2>`;
+                    items.forEach(item => {
+                        html += `
+                            <div class="result-item">
+                                <h3><a href="${item.file}">${item.name}</a></h3>
+                                <p class="description">${item.desc}</p>
+                                <span class="category">${category}</span>
+                            </div>
+                        `;
+                    });
+                }
+            }
+
+            if (!html) {
+                html = '<div class="no-results">没有找到匹配的类</div>';
+            }
+
+            resultsContainer.innerHTML = html;
+        }
+
+        // 监听搜索输入
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            searchClasses(e.target.value);
+        });
+    </script>
+</body>
+</html>
