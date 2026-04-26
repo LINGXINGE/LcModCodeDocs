@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <base href="/LcModCodeDocs/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice - 脑叶公司Mod开发文档 by 小鲨鱼</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>脑叶公司Mod开发文档</h1>
+        <nav class="main-nav">
+            <button class="sidebar-toggle" onclick="toggleSidebar()" title="切换侧边栏">
+                <span id="sidebar-icon">☰</span>
+            </button>
+            <a href="https://github.com/LINGXINGE/LcModCodeDocs" class="nav-link">GitHub</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                <span id="theme-icon">浅色</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">API 参考</div>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html#common">开发常用基类</a></li>
+                <li><a href="../index.html#managers">Manager 类</a></li>
+                <li><a href="../index.html#models">Model 类</a></li>
+                <li><a href="../index.html#bases">Base 类</a></li>
+                <li><a href="../index.html#animscripts">AnimScript 类</a></li>
+            </ul>
+            
+                        <div class="sidebar-header">开发常用基类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../common/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="../common/CommandWindow.html">CommandWindow</a></li>
+                <li><a href="../common/DamageInfo.html">DamageInfo</a></li>
+                <li><a href="../common/IObserver.html">IObserver</a></li>
+                <li><a href="../common/MapEdge.html">MapEdge</a></li>
+                <li><a href="../common/MapGraph.html">MapGraph</a></li>
+                <li><a href="../common/MapNode.html">MapNode</a></li>
+                <li><a href="../common/MovableObjectNode.html">MovableObjectNode</a></li>
+                <li><a href="../common/Notice.html">Notice</a></li>
+                <li><a href="../common/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="../common/UnitBuf.html">UnitBuf</a></li>
+                <li><a href="../common/UnitStatBuf.html">UnitStatBuf</a></li>
+                <li><a href="../common/UncontrollableAction.html">UncontrollableAction</a></li>
+                <li><a href="../animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="../base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="../base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="../manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="../manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="../manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="../model/AgentModel.html">AgentModel</a></li>
+                <li><a href="../model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="../model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="../model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="../model/WorkerModel.html">WorkerModel</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="../index.html">首页</a> / 开发常用基类 / Notice
+            </div>
+
+            <div class="detail-header">
+                <h1>Notice</h1>
+                <div class="namespace">命名空间: Global</div>
+                <p class="description">通知系统类，实现观察者模式。用于游戏内的事件通知和消息传递，支持订阅、取消订阅、发送通知等功能。</p>
+            </div>
+
+            <a href="../index.html" class="back-link">← 返回首页</a>
+
+            <section class="property-section">
+                <h2>公共属性</h2>
+                
+                <div class="property-item">
+                    <div class="property-name">instance</div>
+                    <div class="property-type">属于/类型：<span class="type-name">Notice</span></div>
+                    <div class="description">获取单例实例（静态）</div>
+                </div>
+            </section>
+
+            <section class="method-section">
+                <h2>重要方法</h2>
+                
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Observe</span>(string notice, IObserver observer)</div>
+                    <div class="description">订阅通知，使用IObserver接口</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">int</span> <span class="function-name">Observe</span>(string notice, NoticeReciever observer)</div>
+                    <div class="description">订阅通知，使用回调函数，返回通知ID</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Remove</span>(string notice, IObserver observer)</div>
+                    <div class="description">取消订阅通知</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Remove</span>(string notice, int noticeId)</div>
+                    <div class="description">通过通知ID取消订阅</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Send</span>(string notice, params object[] param)</div>
+                    <div class="description">发送通知给所有订阅者</div>
+                </div>
+            </section>
+
+            <section class="method-section">
+                <h2>使用示例</h2>
+                
+                <div class="method-item">
+                    <div class="description">
+                        <pre><code>// 订阅通知
+int noticeId = Notice.instance.Observe("OnCreatureEscape", (param) => {
+    CreatureModel creature = param[0] as CreatureModel;
+    Debug.Log("异想体逃脱: " + creature.name);
+});
+
+// 发送通知
+Notice.instance.Send("OnCreatureEscape", creatureModel);
+
+// 取消订阅
+Notice.instance.Remove("OnCreatureEscape", noticeId);</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; 脑叶公司Mod开发文档 by 小鲨鱼</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

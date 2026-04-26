@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <base href="/LcModCodeDocs/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentManager - 脑叶公司Mod开发文档 by 小鲨鱼</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>脑叶公司Mod开发文档</h1>
+        <nav class="main-nav">
+            <button class="sidebar-toggle" onclick="toggleSidebar()" title="切换侧边栏">
+                <span id="sidebar-icon">☰</span>
+            </button>
+            <a href="https://github.com/LINGXINGE/LcModCodeDocs" class="nav-link">GitHub</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                <span id="theme-icon">浅色</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="layout">
+                                                <aside class="sidebar">
+            <div class="sidebar-header">API 参考</div>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html#common">开发常用基类</a></li>
+                <li><a href="../index.html#managers">Manager 类</a></li>
+                <li><a href="../index.html#models">Model 类</a></li>
+                <li><a href="../index.html#bases">Base 类</a></li>
+                <li><a href="../index.html#animscripts">AnimScript 类</a></li>
+            </ul>
+            
+                        <div class="sidebar-header">开发常用基类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../common/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="../common/CommandWindow.html">CommandWindow</a></li>
+                <li><a href="../common/DamageInfo.html">DamageInfo</a></li>
+                <li><a href="../common/IObserver.html">IObserver</a></li>
+                <li><a href="../common/MapEdge.html">MapEdge</a></li>
+                <li><a href="../common/MapGraph.html">MapGraph</a></li>
+                <li><a href="../common/MapNode.html">MapNode</a></li>
+                <li><a href="../common/MovableObjectNode.html">MovableObjectNode</a></li>
+                <li><a href="../common/Notice.html">Notice</a></li>
+                <li><a href="../common/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="../common/UnitBuf.html">UnitBuf</a></li>
+                <li><a href="../common/UnitStatBuf.html">UnitStatBuf</a></li>
+                <li><a href="../common/UncontrollableAction.html">UncontrollableAction</a></li>
+                <li><a href="../animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="../base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="../base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="../manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="../manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="../manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="../model/AgentModel.html">AgentModel</a></li>
+                <li><a href="../model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="../model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="../model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="../model/WorkerModel.html">WorkerModel</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Manager 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="../manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="../manager/GameManager.html">GameManager</a></li>
+                <li><a href="../manager/GlobalGameManager.html">GlobalGameManager</a></li>
+                <li><a href="../manager/OfficerManager.html">OfficerManager</a></li>
+                <li><a href="../manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="../manager/RabbitManager.html">RabbitManager</a></li>
+                <li><a href="../manager/SefiraManager.html">SefiraManager</a></li>
+                <li><a href="../manager/MissionManager.html">MissionManager</a></li>
+                <li><a href="../manager/OrdealManager.html">OrdealManager</a></li>
+                <li><a href="../manager/BgmManager.html">BgmManager</a></li>
+                <li><a href="../manager/GlobalAudioManager.html">GlobalAudioManager</a></li>
+                <li><a href="../manager/LocalAudioManager.html">LocalAudioManager</a></li>
+                <li><a href="../manager/UIEffectManager.html">UIEffectManager</a></li>
+                <li><a href="../manager/TutorialManager.html">TutorialManager</a></li>
+                <li><a href="../manager/RandomEventManager.html">RandomEventManager</a></li>
+                <li><a href="../manager/SpecialUnitClickManager.html">SpecialUnitClickManager</a></li>
+                <li><a href="../manager/WorkerSpriteManager.html">WorkerSpriteManager</a></li>
+                <li><a href="../manager/CreatureOverloadManager.html">CreatureOverloadManager</a></li>
+                <li><a href="../manager/OverlayManager.html">OverlayManager</a></li>
+                <li><a href="../manager/UnitMouseEventManager.html">UnitMouseEventManager</a></li>
+                <li><a href="../manager/SpriteLoadManager.html">SpriteLoadManager</a></li>
+                <li><a href="../manager/UIColorManager.html">UIColorManager</a></li>
+                <li><a href="../manager/UIActivateManager.html">UIActivateManager</a></li>
+                <li><a href="../manager/OverlappedUIManager.html">OverlappedUIManager</a></li>
+                <li><a href="../manager/IsolateDescManager.html">IsolateDescManager</a></li>
+                <li><a href="../manager/StandingItemManager.html">StandingItemManager</a></li>
+                <li><a href="../manager/IconManager.html">IconManager</a></li>
+                <li><a href="../manager/ItemObjectManager.html">ItemObjectManager</a></li>
+                <li><a href="../manager/SefiraBossManager.html">SefiraBossManager</a></li>
+                <li><a href="../manager/CursorManager.html">CursorManager</a></li>
+                <li><a href="../manager/ArrowManager.html">ArrowManager</a></li>
+                <li><a href="../manager/SteamManager.html">SteamManager</a></li>
+                <li><a href="../manager/SpecialEventManager.html">SpecialEventManager</a></li>
+                <li><a href="../manager/StoryMemoryManager.html">StoryMemoryManager</a></li>
+                <li><a href="../manager/SefiraCharacterManager.html">SefiraCharacterManager</a></li>
+                <li><a href="../manager/ExplodeGutManager.html">ExplodeGutManager</a></li>
+                <li><a href="../manager/ObserveInfoManager.html">ObserveInfoManager</a></li>
+                <li><a href="../manager/AnimatorManager.html">AnimatorManager</a></li>
+                <li><a href="../manager/HierarchicalDataManager.html">HierarchicalDataManager</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Model 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../model/AgentModel.html">AgentModel</a></li>
+                <li><a href="../model/WorkerModel.html">WorkerModel</a></li>
+                <li><a href="../model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="../model/PlayerModel.html">PlayerModel</a></li>
+                <li><a href="../model/UnitModel.html">UnitModel</a></li>
+                <li><a href="../model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="../model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="../model/OfficerModel.html">OfficerModel</a></li>
+                <li><a href="../model/RabbitModel.html">RabbitModel</a></li>
+                <li><a href="../model/EquipmentModel.html">EquipmentModel</a></li>
+                <li><a href="../model/MapObjectModel.html">MapObjectModel</a></li>
+                <li><a href="../model/ProjectileModel.html">ProjectileModel</a></li>
+                <li><a href="../model/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="../model/OrdealCreatureModel.html">OrdealCreatureModel</a></li>
+                <li><a href="../model/IMouseCommandTargetModel.html">IMouseCommandTargetModel</a></li>
+                <li><a href="../model/ObjectModelBase.html">ObjectModelBase</a></li>
+                <li><a href="../model/MoneyModel.html">MoneyModel</a></li>
+                <li><a href="../model/BloodMapObjectModel.html">BloodMapObjectModel</a></li>
+                <li><a href="../model/GlobalEtcDataModel.html">GlobalEtcDataModel</a></li>
+                <li><a href="../model/EventCreatureModel.html">EventCreatureModel</a></li>
+                <li><a href="../model/StoryVariablesModel.html">StoryVariablesModel</a></li>
+                <li><a href="../model/EnergyModel.html">EnergyModel</a></li>
+                <li><a href="../model/StoryStaticDataModel.html">StoryStaticDataModel</a></li>
+                <li><a href="../model/InventoryModel.html">InventoryModel</a></li>
+                <li><a href="../model/CharacterResourceDataModel.html">CharacterResourceDataModel</a></li>
+                <li><a href="../model/ElevatorPassageModel.html">ElevatorPassageModel</a></li>
+                <li><a href="../model/DoorObjectModel.html">DoorObjectModel</a></li>
+                <li><a href="../model/LocalizeTextDataModel.html">LocalizeTextDataModel</a></li>
+                <li><a href="../model/StandingItemModel.html">StandingItemModel</a></li>
+                <li><a href="../model/SefiraCharacterModel.html">SefiraCharacterModel</a></li>
+                <li><a href="../model/EGOgiftModel.html">EGOgiftModel</a></li>
+                <li><a href="../model/CreatureObserveInfoModel.html">CreatureObserveInfoModel</a></li>
+                <li><a href="../model/SefiraBossCreatureModel.html">SefiraBossCreatureModel</a></li>
+                <li><a href="../model/ResearchDataModel.html">ResearchDataModel</a></li>
+                <li><a href="../model/ResearchItemModel.html">ResearchItemModel</a></li>
+                <li><a href="../model/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="../model/AgentModelEventHandler.html">AgentModelEventHandler</a></li>
+                <li><a href="../model/GameSettingModel.html">GameSettingModel</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Base 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../base/ActionClassBase.html">ActionClassBase</a></li>
+                <li><a href="../base/ObjectModelBase.html">ObjectModelBase</a></li>
+                <li><a href="../base/ChesedBossBase.html">ChesedBossBase</a></li>
+                <li><a href="../base/BinahBossBase.html">BinahBossBase</a></li>
+                <li><a href="../base/SefiraBossBase.html">SefiraBossBase</a></li>
+                <li><a href="../base/BossEggBase.html">BossEggBase</a></li>
+                <li><a href="../base/YesodBossBase.html">YesodBossBase</a></li>
+                <li><a href="../base/TipherethBossBase.html">TipherethBossBase</a></li>
+                <li><a href="../base/NetzachBossBase.html">NetzachBossBase</a></li>
+                <li><a href="../base/RandomEventBase.html">RandomEventBase</a></li>
+                <li><a href="../base/MalkutBossBase.html">MalkutBossBase</a></li>
+                <li><a href="../base/HodBossBase.html">HodBossBase</a></li>
+                <li><a href="../base/GeburahBossBase.html">GeburahBossBase</a></li>
+                <li><a href="../base/EventBase.html">EventBase</a></li>
+                <li><a href="../base/ChokhmahBossBase.html">ChokhmahBossBase</a></li>
+                <li><a href="../base/OrdealBase.html">OrdealBase</a></li>
+                <li><a href="../base/StandingItemScriptBase.html">StandingItemScriptBase</a></li>
+                <li><a href="../base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="../base/CensoredCreatureBase.html">CensoredCreatureBase</a></li>
+                <li><a href="../base/YinAndYangBase.html">YinAndYangBase</a></li>
+                <li><a href="../base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="../base/BirdCreatureBase.html">BirdCreatureBase</a></li>
+            </ul>
+            
+            <div class="sidebar-header">AnimScript 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../animscript/AnimScript.html">AnimScript</a></li>
+                <li><a href="../animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="../animscript/MapFloatAnimScript.html">MapFloatAnimScript</a></li>
+                <li><a href="../animscript/MagicalGirlResetAnimScript.html">MagicalGirlResetAnimScript</a></li>
+            </ul>
+        </aside>
+        <main class="main-content" >
+            <div class="breadcrumb">
+                <a href="../index.html">首页</a> / <a href="../index.html#managers">Manager 类</a> / AgentManager
+            </div>
+
+            <div class="detail-header">
+                <h1>AgentManager</h1>
+                <div class="namespace">命名空间: Global</div>
+                <div class="description">AgentManager 类负责管理所有 Agent 模型的创建、激活和停用。</div>
+            </div>
+
+            <a href="../index.html" class="back-link">← 返回首页</a>
+
+            <section class="property-section">
+                <h2>公共属性</h2>
+                
+                <div class="property-item">
+                    <div class="property-name">instance</div>
+                    <div class="description">获取 AgentManager 的单例实例</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">agentListSpare</div>
+                    <div class="description">备用 Agent 模型列表</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">deletedAgent</div>
+                    <div class="description">永久删除的 Agent 列表</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">customAgent</div>
+                    <div class="description">自定义 Agent 数据列表</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">agentMaxCount</div>
+                    <div class="description">允许的最大 Agent 数量（常量：50）</div>
+                </div>
+            </section>
+
+            <section class="method-section">
+                <h2>可重写方法</h2>
+                
+                <div class="method-item">
+                    <div class="method-name">Init</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Init</span>()</div>
+                    <div class="description">初始化 AgentManager</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">Clear</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Clear</span>()</div>
+                    <div class="description">清除所有 Agent 数据</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">AddSpareAgentModel</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentModel</span> <span class="function-name">AddSpareAgentModel</span>()</div>
+                    <div class="description">添加一个新的备用 Agent 模型</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">AddAgentModelCustom</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentModel</span> <span class="function-name">AddAgentModelCustom</span>(Customizing.AgentData genData)</div>
+                    <div class="description">添加一个新的自定义 Agent 模型</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">OnStageStart</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnStageStart</span>()</div>
+                    <div class="description">当阶段开始时调用</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">OnStageEnd</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnStageEnd</span>()</div>
+                    <div class="description">当阶段结束时调用</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">OnStageRelease</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnStageRelease</span>()</div>
+                    <div class="description">当阶段释放时调用</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">OnFixedUpdate</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnFixedUpdate</span>()</div>
+                    <div class="description">每帧固定更新时调用</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">OnNotice</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnNotice</span>(<span class="param-type">string</span> notice, <span class="param-type">params object[]</span> param)</div>
+                    <div class="description">当接收到通知时调用</div>
+                </div>
+            </section>
+
+            <section class="method-section">
+                <h2>其他重要方法</h2>
+                
+                <div class="method-item">
+                    <div class="method-name">GetAgent</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentModel</span> <span class="function-name">GetAgent</span>(<span class="param-type">long</span> id)</div>
+                    <div class="description">根据 ID 获取 Agent</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">GetAgentList</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">IList&lt;AgentModel&gt;</span> <span class="function-name">GetAgentList</span>()</div>
+                    <div class="description">获取活跃 Agent 列表</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">GetAgentSpareList</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">IList&lt;AgentModel&gt;</span> <span class="function-name">GetAgentSpareList</span>()</div>
+                    <div class="description">获取备用 Agent 列表</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">GetAllAgentCount</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">int</span> <span class="function-name">GetAllAgentCount</span>()</div>
+                    <div class="description">获取 Agent 总数</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">BuyAgent</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentModel</span> <span class="function-name">BuyAgent</span>()</div>
+                    <div class="description">购买新 Agent</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">GetSaveData</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">Dictionary&lt;string, object&gt;</span> <span class="function-name">GetSaveData</span>()</div>
+                    <div class="description">获取 AgentManager 的保存数据</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">LoadData</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">LoadData</span>(<span class="param-type">Dictionary&lt;string, object&gt;</span> dic)</div>
+                    <div class="description">加载数据到 AgentManager</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">RemoveAgent</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">RemoveAgent</span>(<span class="param-type">long</span> id)</div>
+                    <div class="description">根据 ID 移除 Agent</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">GetNearAgents</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentModel[]</span> <span class="function-name">GetNearAgents</span>(<span class="param-type">MovableObjectNode</span> node)</div>
+                    <div class="description">获取附近的 Agent</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">GetSurvivalRate</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">float</span> <span class="function-name">GetSurvivalRate</span>()</div>
+                    <div class="description">获取 Agent 存活率</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">AddPermantelyDeleteAgent</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">AddPermantelyDeleteAgent</span>(<span class="param-type">AgentModel</span> agent)</div>
+                    <div class="description">添加永久删除的 Agent</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">AddCustomAgent</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentManager.CustomizedAgentData</span> <span class="function-name">AddCustomAgent</span>(<span class="param-type">AgentModel</span> agent)</div>
+                    <div class="description">添加自定义 Agent</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">GetCustomAgentData</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentManager.CustomizedAgentData</span> <span class="function-name">GetCustomAgentData</span>(<span class="param-type">long</span> instId)</div>
+                    <div class="description">根据实例 ID 获取自定义 Agent 数据</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">DeletedContain</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">DeletedContain</span>(<span class="param-type">long</span> id)</div>
+                    <div class="description">检查 ID 是否在删除列表中</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-name">RemoveAllDlcEquipment</div>
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">RemoveAllDlcEquipment</span>()</div>
+                    <div class="description">移除所有 DLC 装备</div>
+                </div>
+            </section>
+
+            <footer>
+        <p>&copy; 脑叶公司Mod开发文档 by 小鲨鱼</p>
+    </footer>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
