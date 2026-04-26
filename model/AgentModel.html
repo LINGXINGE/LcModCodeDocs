@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentModel - 脑叶公司Mod开发文档 by 小鲨鱼</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>脑叶公司Mod开发文档</h1>
+        <nav class="main-nav">
+            <button class="sidebar-toggle" onclick="toggleSidebar()" title="切换侧边栏">
+                <span id="sidebar-icon">☰</span>
+            </button>
+            <a href="https://github.com/LINGXINGE/LcModCodeDocs" class="nav-link">GitHub</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                <span id="theme-icon">浅色</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="layout">
+                                                <aside class="sidebar">
+            <div class="sidebar-header">API 参考</div>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html#common">开发常用基类</a></li>
+                <li><a href="../index.html#managers">Manager 类</a></li>
+                <li><a href="../index.html#models">Model 类</a></li>
+                <li><a href="../index.html#bases">Base 类</a></li>
+                <li><a href="../index.html#animscripts">AnimScript 类</a></li>
+            </ul>
+            
+                        <div class="sidebar-header">开发常用基类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../common/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="../common/CommandWindow.html">CommandWindow</a></li>
+                <li><a href="../common/DamageInfo.html">DamageInfo</a></li>
+                <li><a href="../common/IObserver.html">IObserver</a></li>
+                <li><a href="../common/MapEdge.html">MapEdge</a></li>
+                <li><a href="../common/MapGraph.html">MapGraph</a></li>
+                <li><a href="../common/MapNode.html">MapNode</a></li>
+                <li><a href="../common/MovableObjectNode.html">MovableObjectNode</a></li>
+                <li><a href="../common/Notice.html">Notice</a></li>
+                <li><a href="../common/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="../common/UnitBuf.html">UnitBuf</a></li>
+                <li><a href="../common/UnitStatBuf.html">UnitStatBuf</a></li>
+                <li><a href="../common/UncontrollableAction.html">UncontrollableAction</a></li>
+                <li><a href="../animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="../base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="../base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="../manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="../manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="../manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="../model/AgentModel.html">AgentModel</a></li>
+                <li><a href="../model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="../model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="../model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="../model/WorkerModel.html">WorkerModel</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Manager 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="../manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="../manager/GameManager.html">GameManager</a></li>
+                <li><a href="../manager/GlobalGameManager.html">GlobalGameManager</a></li>
+                <li><a href="../manager/OfficerManager.html">OfficerManager</a></li>
+                <li><a href="../manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="../manager/RabbitManager.html">RabbitManager</a></li>
+                <li><a href="../manager/SefiraManager.html">SefiraManager</a></li>
+                <li><a href="../manager/MissionManager.html">MissionManager</a></li>
+                <li><a href="../manager/OrdealManager.html">OrdealManager</a></li>
+                <li><a href="../manager/BgmManager.html">BgmManager</a></li>
+                <li><a href="../manager/GlobalAudioManager.html">GlobalAudioManager</a></li>
+                <li><a href="../manager/LocalAudioManager.html">LocalAudioManager</a></li>
+                <li><a href="../manager/UIEffectManager.html">UIEffectManager</a></li>
+                <li><a href="../manager/TutorialManager.html">TutorialManager</a></li>
+                <li><a href="../manager/RandomEventManager.html">RandomEventManager</a></li>
+                <li><a href="../manager/SpecialUnitClickManager.html">SpecialUnitClickManager</a></li>
+                <li><a href="../manager/WorkerSpriteManager.html">WorkerSpriteManager</a></li>
+                <li><a href="../manager/CreatureOverloadManager.html">CreatureOverloadManager</a></li>
+                <li><a href="../manager/OverlayManager.html">OverlayManager</a></li>
+                <li><a href="../manager/UnitMouseEventManager.html">UnitMouseEventManager</a></li>
+                <li><a href="../manager/SpriteLoadManager.html">SpriteLoadManager</a></li>
+                <li><a href="../manager/UIColorManager.html">UIColorManager</a></li>
+                <li><a href="../manager/UIActivateManager.html">UIActivateManager</a></li>
+                <li><a href="../manager/OverlappedUIManager.html">OverlappedUIManager</a></li>
+                <li><a href="../manager/IsolateDescManager.html">IsolateDescManager</a></li>
+                <li><a href="../manager/StandingItemManager.html">StandingItemManager</a></li>
+                <li><a href="../manager/IconManager.html">IconManager</a></li>
+                <li><a href="../manager/ItemObjectManager.html">ItemObjectManager</a></li>
+                <li><a href="../manager/SefiraBossManager.html">SefiraBossManager</a></li>
+                <li><a href="../manager/CursorManager.html">CursorManager</a></li>
+                <li><a href="../manager/ArrowManager.html">ArrowManager</a></li>
+                <li><a href="../manager/SteamManager.html">SteamManager</a></li>
+                <li><a href="../manager/SpecialEventManager.html">SpecialEventManager</a></li>
+                <li><a href="../manager/StoryMemoryManager.html">StoryMemoryManager</a></li>
+                <li><a href="../manager/SefiraCharacterManager.html">SefiraCharacterManager</a></li>
+                <li><a href="../manager/ExplodeGutManager.html">ExplodeGutManager</a></li>
+                <li><a href="../manager/ObserveInfoManager.html">ObserveInfoManager</a></li>
+                <li><a href="../manager/AnimatorManager.html">AnimatorManager</a></li>
+                <li><a href="../manager/HierarchicalDataManager.html">HierarchicalDataManager</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Model 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../model/AgentModel.html">AgentModel</a></li>
+                <li><a href="../model/WorkerModel.html">WorkerModel</a></li>
+                <li><a href="../model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="../model/PlayerModel.html">PlayerModel</a></li>
+                <li><a href="../model/UnitModel.html">UnitModel</a></li>
+                <li><a href="../model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="../model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="../model/OfficerModel.html">OfficerModel</a></li>
+                <li><a href="../model/RabbitModel.html">RabbitModel</a></li>
+                <li><a href="../model/EquipmentModel.html">EquipmentModel</a></li>
+                <li><a href="../model/MapObjectModel.html">MapObjectModel</a></li>
+                <li><a href="../model/ProjectileModel.html">ProjectileModel</a></li>
+                <li><a href="../model/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="../model/OrdealCreatureModel.html">OrdealCreatureModel</a></li>
+                <li><a href="../model/IMouseCommandTargetModel.html">IMouseCommandTargetModel</a></li>
+                <li><a href="../model/ObjectModelBase.html">ObjectModelBase</a></li>
+                <li><a href="../model/MoneyModel.html">MoneyModel</a></li>
+                <li><a href="../model/BloodMapObjectModel.html">BloodMapObjectModel</a></li>
+                <li><a href="../model/GlobalEtcDataModel.html">GlobalEtcDataModel</a></li>
+                <li><a href="../model/EventCreatureModel.html">EventCreatureModel</a></li>
+                <li><a href="../model/StoryVariablesModel.html">StoryVariablesModel</a></li>
+                <li><a href="../model/EnergyModel.html">EnergyModel</a></li>
+                <li><a href="../model/StoryStaticDataModel.html">StoryStaticDataModel</a></li>
+                <li><a href="../model/InventoryModel.html">InventoryModel</a></li>
+                <li><a href="../model/CharacterResourceDataModel.html">CharacterResourceDataModel</a></li>
+                <li><a href="../model/ElevatorPassageModel.html">ElevatorPassageModel</a></li>
+                <li><a href="../model/DoorObjectModel.html">DoorObjectModel</a></li>
+                <li><a href="../model/LocalizeTextDataModel.html">LocalizeTextDataModel</a></li>
+                <li><a href="../model/StandingItemModel.html">StandingItemModel</a></li>
+                <li><a href="../model/SefiraCharacterModel.html">SefiraCharacterModel</a></li>
+                <li><a href="../model/EGOgiftModel.html">EGOgiftModel</a></li>
+                <li><a href="../model/CreatureObserveInfoModel.html">CreatureObserveInfoModel</a></li>
+                <li><a href="../model/SefiraBossCreatureModel.html">SefiraBossCreatureModel</a></li>
+                <li><a href="../model/ResearchDataModel.html">ResearchDataModel</a></li>
+                <li><a href="../model/ResearchItemModel.html">ResearchItemModel</a></li>
+                <li><a href="../model/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="../model/AgentModelEventHandler.html">AgentModelEventHandler</a></li>
+                <li><a href="../model/GameSettingModel.html">GameSettingModel</a></li>
+            </ul>
+            
+            <div class="sidebar-header">Base 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../base/ActionClassBase.html">ActionClassBase</a></li>
+                <li><a href="../base/ObjectModelBase.html">ObjectModelBase</a></li>
+                <li><a href="../base/ChesedBossBase.html">ChesedBossBase</a></li>
+                <li><a href="../base/BinahBossBase.html">BinahBossBase</a></li>
+                <li><a href="../base/SefiraBossBase.html">SefiraBossBase</a></li>
+                <li><a href="../base/BossEggBase.html">BossEggBase</a></li>
+                <li><a href="../base/YesodBossBase.html">YesodBossBase</a></li>
+                <li><a href="../base/TipherethBossBase.html">TipherethBossBase</a></li>
+                <li><a href="../base/NetzachBossBase.html">NetzachBossBase</a></li>
+                <li><a href="../base/RandomEventBase.html">RandomEventBase</a></li>
+                <li><a href="../base/MalkutBossBase.html">MalkutBossBase</a></li>
+                <li><a href="../base/HodBossBase.html">HodBossBase</a></li>
+                <li><a href="../base/GeburahBossBase.html">GeburahBossBase</a></li>
+                <li><a href="../base/EventBase.html">EventBase</a></li>
+                <li><a href="../base/ChokhmahBossBase.html">ChokhmahBossBase</a></li>
+                <li><a href="../base/OrdealBase.html">OrdealBase</a></li>
+                <li><a href="../base/StandingItemScriptBase.html">StandingItemScriptBase</a></li>
+                <li><a href="../base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="../base/CensoredCreatureBase.html">CensoredCreatureBase</a></li>
+                <li><a href="../base/YinAndYangBase.html">YinAndYangBase</a></li>
+                <li><a href="../base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="../base/BirdCreatureBase.html">BirdCreatureBase</a></li>
+            </ul>
+            
+            <div class="sidebar-header">AnimScript 类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../animscript/AnimScript.html">AnimScript</a></li>
+                <li><a href="../animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="../animscript/MapFloatAnimScript.html">MapFloatAnimScript</a></li>
+                <li><a href="../animscript/MagicalGirlResetAnimScript.html">MagicalGirlResetAnimScript</a></li>
+            </ul>
+        </aside>
+        <main class="main-content" >
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">首页</a> / <a href="../index.html#models">Model 类</a> / AgentModel
+        </div>
+
+        <div class="detail-header">
+            <h1>AgentModel</h1>
+            <div class="namespace">命名空间: Global</div>
+            <div class="description">AgentModel 类代表游戏中的 Agent，包括其属性、技能和行为。</div>
+        </div>
+
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <section class="property-section">
+            <h2>公共属性</h2>
+                
+                <div class="property-item">
+                    <div class="property-name">level</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的等级</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">Rstat</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的勇气属性</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">Wstat</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的谨慎属性</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">Bstat</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的自律属性</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">Pstat</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的正义属性</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">fortitudeLevel</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的勇气等级</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">prudenceLevel</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的谨慎等级</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">temperanceLevel</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的自律等级</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">justiceLevel</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的正义等级</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">maxHp</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的最大 HP</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">maxMental</div>
+                    <div class="property-type">属于/类型：<span class="type-name">int</span></div>
+                    <div class="description">获取 Agent 的最大精神值</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">movement</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的移动速度</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">regeneration</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的 HP 恢复速度</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">regenerationDelay</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的 HP 恢复延迟</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">regenerationMental</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的精神值恢复速度</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">regenerationMentalDelay</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的精神值恢复延迟</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">physicalDefense</div>
+                    <div class="property-type">属于/类型：<span class="type-name">DefenseModel</span></div>
+                    <div class="description">获取 Agent 的物理防御</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">mentalDefense</div>
+                    <div class="property-type">属于/类型：<span class="type-name">DefenseModel</span></div>
+                    <div class="description">获取 Agent 的精神防御</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">workSpeed</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的工作速度</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">workProb</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的工作成功率</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">attackSpeed</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">获取 Agent 的攻击速度</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">defense</div>
+                    <div class="property-type">属于/类型：<span class="type-name">DefenseInfo</span></div>
+                    <div class="description">获取 Agent 的防御信息</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">titleBonus</div>
+                    <div class="property-type">属于/类型：<span class="type-name">TitleBonus</span></div>
+                    <div class="description">获取 Agent 的称号加成</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">currentSkill</div>
+                    <div class="property-type">属于/类型：<span class="type-name">SkillTypeInfo</span></div>
+                    <div class="description">获取或设置 Agent 的当前技能</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">CheckWorkCommand</div>
+                    <div class="property-type">属于/类型：<span class="type-name">bool</span></div>
+                    <div class="description">获取 Agent 的工作命令检查</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">CheckSuppressCommand</div>
+                    <div class="property-type">属于/类型：<span class="type-name">bool</span></div>
+                    <div class="description">获取 Agent 的镇压命令检查</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">eventHandler</div>
+                    <div class="property-type">属于/类型：<span class="type-name">eventHandler</span></div>
+                    <div class="description">获取 Agent 的事件处理器</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">bestRwbp</div>
+                    <div class="property-type">属于/类型：<span class="type-name">RwbpType</span></div>
+                    <div class="description">获取 Agent 的最佳 Rwbp 类型</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">canCancelCurrentWork</div>
+                    <div class="property-type">属于/类型：<span class="type-name">bool</span></div>
+                    <div class="description">获取 Agent 是否可以取消当前工作</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">IsAutoSuppressing</div>
+                    <div class="property-type">属于/类型：<span class="type-name">bool</span></div>
+                    <div class="description">获取 Agent 是否正在自动镇压</div>
+                </div>
+        </section>
+
+        <section class="method-section">
+            <h2>可重写方法</h2>
+            
+            <div class="method-item">
+                <div class="method-name">Init</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Init</span>()</div>
+                <div class="description">初始化 Agent</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetSaveData</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">Dictionary&lt;string, object&gt;</span> <span class="function-name">GetSaveData</span>()</div>
+                <div class="description">获取 Agent 的保存数据</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">LoadData</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">LoadData</span>(<span class="param-type">Dictionary&lt;string, object&gt;</span> dic)</div>
+                <div class="description">加载数据到 Agent</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnStageStart</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnStageStart</span>()</div>
+                <div class="description">当阶段开始时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnStageEnd</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnStageEnd</span>()</div>
+                <div class="description">当阶段结束时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnStageRelease</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnStageRelease</span>()</div>
+                <div class="description">当阶段释放时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnFixedUpdate</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnFixedUpdate</span>()</div>
+                <div class="description">每帧固定更新时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ProcessAction</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ProcessAction</span>()</div>
+                <div class="description">处理 Agent 的动作</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnSetWeapon</div>
+                <div class="method-signature"><span class="access-modifier">protected</span> <span class="return-type">void</span> <span class="function-name">OnSetWeapon</span>()</div>
+                <div class="description">当设置武器时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnChangeGift</div>
+                <div class="method-signature"><span class="access-modifier">protected</span> <span class="return-type">void</span> <span class="function-name">OnChangeGift</span>()</div>
+                <div class="description">当更改礼物时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnReleaseWeapon</div>
+                <div class="method-signature"><span class="access-modifier">protected</span> <span class="return-type">void</span> <span class="function-name">OnReleaseWeapon</span>()</div>
+                <div class="description">当释放武器时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnSetArmor</div>
+                <div class="method-signature"><span class="access-modifier">protected</span> <span class="return-type">void</span> <span class="function-name">OnSetArmor</span>()</div>
+                <div class="description">当设置护甲时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnReleaseArmor</div>
+                <div class="method-signature"><span class="access-modifier">protected</span> <span class="return-type">void</span> <span class="function-name">OnReleaseArmor</span>()</div>
+                <div class="description">当释放护甲时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnSetKitCreature</div>
+                <div class="method-signature"><span class="access-modifier">protected</span> <span class="return-type">void</span> <span class="function-name">OnSetKitCreature</span>()</div>
+                <div class="description">当设置套件 Creature 时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnReleaseKitCreature</div>
+                <div class="method-signature"><span class="access-modifier">protected</span> <span class="return-type">void</span> <span class="function-name">OnReleaseKitCreature</span>()</div>
+                <div class="description">当释放套件 Creature 时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">PrepareWeapon</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">PrepareWeapon</span>()</div>
+                <div class="description">准备 Agent 的武器</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">CancelWeapon</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">CancelWeapon</span>()</div>
+                <div class="description">取消 Agent 的武器</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">RecoverHP</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">RecoverHP</span>(<span class="param-type">float</span> amount)</div>
+                <div class="description">恢复 Agent 的 HP</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">RecoverMental</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">RecoverMental</span>(<span class="param-type">float</span> amount)</div>
+                <div class="description">恢复 Agent 的精神值</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">StopAction</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">StopAction</span>()</div>
+                <div class="description">停止 Agent 的动作</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ClearUnconCommand</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ClearUnconCommand</span>()</div>
+                <div class="description">清除 Agent 的不可控命令</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">UnderAttack</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">UnderAttack</span>(<span class="param-type">UnitModel</span> attacker)</div>
+                <div class="description">当 Agent 受到攻击时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">LoseControl</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">LoseControl</span>()</div>
+                <div class="description">当 Agent 失去控制时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetControl</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">GetControl</span>()</div>
+                <div class="description">当 Agent 恢复控制时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">CannotControll</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">CannotControll</span>()</div>
+                <div class="description">获取 Agent 是否无法控制</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">SetUncontrollableAction</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">SetUncontrollableAction</span>(<span class="param-type">UncontrollableAction</span> uncon)</div>
+                <div class="description">设置 Agent 的不可控动作</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnDie</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnDie</span>()</div>
+                <div class="description">当 Agent 死亡时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">Panic</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Panic</span>()</div>
+                <div class="description">使 Agent 进入恐慌状态</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">PanicReadyComplete</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">PanicReadyComplete</span>()</div>
+                <div class="description">当 Agent 准备好恐慌时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">StopPanic</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">StopPanic</span>()</div>
+                <div class="description">停止 Agent 的恐慌状态</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">StopPanicWithoutStun</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">StopPanicWithoutStun</span>()</div>
+                <div class="description">停止 Agent 的恐慌状态但不眩晕</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">IsPanic</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">IsPanic</span>()</div>
+                <div class="description">获取 Agent 是否正在恐慌</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">IsAttackTargetable</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">IsAttackTargetable</span>()</div>
+                <div class="description">获取 Agent 是否可以被攻击</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetRiskLevel</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">int</span> <span class="function-name">GetRiskLevel</span>()</div>
+                <div class="description">获取 Agent 的风险等级</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetAttackLevel</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">int</span> <span class="function-name">GetAttackLevel</span>()</div>
+                <div class="description">获取 Agent 的攻击等级</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetDefenseLevel</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">int</span> <span class="function-name">GetDefenseLevel</span>()</div>
+                <div class="description">获取 Agent 的防御等级</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">EncounterCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">EncounterCreature</span>(<span class="param-type">UnitModel</span> encounteredCreature)</div>
+                <div class="description">当 Agent 遭遇 Creature 时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">EncounterStandingItem</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">EncounterStandingItem</span>(<span class="param-type">StandingItemModel</span> standing)</div>
+                <div class="description">当 Agent 遭遇站立物品时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ResetAnimator</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ResetAnimator</span>()</div>
+                <div class="description">重置 Agent 的动画器</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ShowCreatureActionSpeech</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ShowCreatureActionSpeech</span>(<span class="param-type">long</span> creatureId, <span class="param-type">string</span> key)</div>
+                <div class="description">显示 Agent 的 Creature 动作语音</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetUnitName</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">string</span> <span class="function-name">GetUnitName</span>()</div>
+                <div class="description">获取 Agent 的单位名称</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetCurrentSefira</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">Sefira</span> <span class="function-name">GetCurrentSefira</span>()</div>
+                <div class="description">获取 Agent 当前的 Sefira</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">IsCrazy</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">IsCrazy</span>()</div>
+                <div class="description">获取 Agent 是否疯狂</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnResurrect</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnResurrect</span>()</div>
+                <div class="description">当 Agent 复活时调用</div>
+            </div>
+        </section>
+
+        <section class="method-section">
+            <h2>其他重要方法</h2>
+            
+            <div class="method-item">
+                <div class="method-name">InitTitle</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">InitTitle</span>()</div>
+                <div class="description">初始化 Agent 的称号</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">InitSkills</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">InitSkills</span>()</div>
+                <div class="description">初始化 Agent 的技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">InitSkills</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">InitSkills</span>(<span class="param-type">params SkillTypeInfo[]</span> skills)</div>
+                <div class="description">使用指定技能初始化 Agent</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">StatLevel</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">int</span> <span class="function-name">StatLevel</span>(<span class="param-type">RwbpType</span> type)</div>
+                <div class="description">根据类型获取属性等级</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">UpdatePrimaryStat</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">WorkerPrimaryStatBonus</span> <span class="function-name">UpdatePrimaryStat</span>()</div>
+                <div class="description">更新 Agent 的主要属性</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">UpdateTitle</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">UpdateTitle</span>(<span class="param-type">int</span> oldLevel)</div>
+                <div class="description">更新 Agent 的称号</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">SetUnit</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">SetUnit</span>(<span class="param-type">AgentUnit</span> unit)</div>
+                <div class="description">设置 Agent 的单位</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ResetWaitingPassage</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ResetWaitingPassage</span>()</div>
+                <div class="description">重置 Agent 的等待通道</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">SetWaitingPassage</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">SetWaitingPassage</span>(<span class="param-type">PassageObjectModel</span> passage)</div>
+                <div class="description">设置 Agent 的等待通道</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ChangeHairSprite</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ChangeHairSprite</span>(<span class="param-type">SpriteInfo</span> spriteInfo)</div>
+                <div class="description">更改 Agent 的头发精灵</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetMovementValue</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">float</span> <span class="function-name">GetMovementValue</span>()</div>
+                <div class="description">获取 Agent 的移动值</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetSkillInfos</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentModel.SkillInfo[]</span> <span class="function-name">GetSkillInfos</span>()</div>
+                <div class="description">获取 Agent 的技能信息数组</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">HasSkill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">HasSkill</span>(<span class="param-type">SkillTypeInfo</span> skill)</div>
+                <div class="description">检查 Agent 是否拥有指定技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">HasSkill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">HasSkill</span>(<span class="param-type">long</span> id)</div>
+                <div class="description">根据 ID 检查 Agent 是否拥有指定技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetState</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentAIState</span> <span class="function-name">GetState</span>()</div>
+                <div class="description">获取 Agent 的状态</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FollowMovable</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FollowMovable</span>(<span class="param-type">MovableObjectNode</span> node)</div>
+                <div class="description">跟随可移动对象</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">PursueAgent</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">PursueAgent</span>(<span class="param-type">UnitModel</span> target)</div>
+                <div class="description">追击 Agent</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">PursueUnconAgent</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">PursueUnconAgent</span>(<span class="param-type">UnitModel</span> target)</div>
+                <div class="description">追击不可控 Agent</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ManageCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ManageCreature</span>(<span class="param-type">CreatureModel</span> target, <span class="param-type">SkillTypeInfo</span> skill, <span class="param-type">Sprite</span> skillSprite)</div>
+                <div class="description">管理 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ManageKitCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ManageKitCreature</span>(<span class="param-type">CreatureModel</span> target)</div>
+                <div class="description">管理套件 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ReturnKitCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ReturnKitCreature</span>()</div>
+                <div class="description">返回套件 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ReturnCancelKitCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ReturnCancelKitCreature</span>()</div>
+                <div class="description">返回取消套件 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ObserveCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ObserveCreature</span>(<span class="param-type">CreatureModel</span> target, <span class="param-type">Sprite</span> skillSprite)</div>
+                <div class="description">观察 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ReturnCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ReturnCreature</span>(<span class="param-type">CreatureModel</span> target)</div>
+                <div class="description">返回 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FinishManage</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FinishManage</span>()</div>
+                <div class="description">完成管理</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FinishObserve</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FinishObserve</span>()</div>
+                <div class="description">完成观察</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FinishReturnKitCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FinishReturnKitCreature</span>()</div>
+                <div class="description">完成返回套件 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FinishSuppress</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FinishSuppress</span>()</div>
+                <div class="description">完成镇压</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">Suppress</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Suppress</span>(<span class="param-type">UnitModel</span> target, <span class="param-type">bool</span> isAuto = false)</div>
+                <div class="description">镇压目标</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">SuppressStandingObject</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">SuppressStandingObject</span>(<span class="param-type">StandingItemModel</span> standing)</div>
+                <div class="description">镇压站立对象</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">IsSuppressing</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">IsSuppressing</span>()</div>
+                <div class="description">获取 Agent 是否正在镇压</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">PanicSuppressed</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">PanicSuppressed</span>()</div>
+                <div class="description">恐慌被镇压</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">PanicByCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">PanicByCreature</span>(<span class="param-type">CreatureModel</span> creature, <span class="param-type">SkillTypeInfo</span> skill)</div>
+                <div class="description">因 Creature 而恐慌</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">ForcelyPanic</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ForcelyPanic</span>(<span class="param-type">RwbpType</span> type)</div>
+                <div class="description">强制恐慌</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FinishOpenIolateRoom</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FinishOpenIolateRoom</span>()</div>
+                <div class="description">完成打开隔离室</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FinishPursueAgent</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FinishPursueAgent</span>()</div>
+                <div class="description">完成追击 Agent</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">FinishReturnCreature</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">FinishReturnCreature</span>()</div>
+                <div class="description">完成返回 Creature</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">SetCurrentSefira</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">SetCurrentSefira</span>(<span class="param-type">string</span> sefira)</div>
+                <div class="description">设置当前 Sefira</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">OnClick</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">OnClick</span>()</div>
+                <div class="description">当点击时调用</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">IconAllocated</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">IconAllocated</span>()</div>
+                <div class="description">图标已分配</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">WorkEndReaction</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">WorkEndReaction</span>()</div>
+                <div class="description">工作结束反应</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">WorkAnimPlayed</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">WorkAnimPlayed</span>()</div>
+                <div class="description">工作动画已播放</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">CreatureActionSpeechByAnim</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">CreatureActionSpeechByAnim</span>(<span class="param-type">string</span> key)</div>
+                <div class="description">通过动画播放 Creature 动作语音</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetTitle</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">string</span> <span class="function-name">GetTitle</span>()</div>
+                <div class="description">获取 Agent 的称号</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetTitle</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">string</span> <span class="function-name">GetTitle</span>(<span class="param-type">out string</span> pre, <span class="param-type">out string</span> post)</div>
+                <div class="description">获取 Agent 的称号（带前后缀）</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">DebugDamage</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">DebugDamage</span>(<span class="param-type">RwbpType</span> type, <span class="param-type">int</span> damage)</div>
+                <div class="description">调试伤害</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">AddSpecialSkill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">AddSpecialSkill</span>(<span class="param-type">SkillTypeInfo</span> skill)</div>
+                <div class="description">添加特殊技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">AddSkill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">AddSkill</span>(<span class="param-type">long</span> id)</div>
+                <div class="description">根据 ID 添加技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">AddSpecialSkill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">AddSpecialSkill</span>(<span class="param-type">long</span> id)</div>
+                <div class="description">根据 ID 添加特殊技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">RemoveSkill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">RemoveSkill</span>(<span class="param-type">long</span> id)</div>
+                <div class="description">根据 ID 移除技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">RemoveSkill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">RemoveSkill</span>(<span class="param-type">SkillTypeInfo</span> skill)</div>
+                <div class="description">移除技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">RemoveSkillAll</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">RemoveSkillAll</span>()</div>
+                <div class="description">移除所有技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">GetNormalSKill</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">AgentModel.SkillInfo[]</span> <span class="function-name">GetNormalSKill</span>()</div>
+                <div class="description">获取普通技能</div>
+            </div>
+
+            <div class="method-item">
+                <div class="method-name">HorrorDamage</div>
+                <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">HorrorDamage</span>(<span class="param-type">UnitModel</span> target)</div>
+                <div class="description">恐惧伤害</div>
+            </div>
+        </section>
+
+        <footer>
+        <p>&copy; 脑叶公司Mod开发文档 by 小鲨鱼</p>
+    </footer>
+    </div>
+
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
