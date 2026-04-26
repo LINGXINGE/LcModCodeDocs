@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassageObjectModel - 脑叶公司Mod开发文档 by 小鲨鱼</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>脑叶公司Mod开发文档</h1>
+        <nav class="main-nav">
+            <button class="sidebar-toggle" onclick="toggleSidebar()" title="切换侧边栏">
+                <span id="sidebar-icon">☰</span>
+            </button>
+            <a href="https://github.com/LINGXINGE/LcModCodeDocs" class="nav-link">GitHub</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                <span id="theme-icon">浅色</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">API 参考</div>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html#common">开发常用基类</a></li>
+                <li><a href="../index.html#managers">Manager 类</a></li>
+                <li><a href="../index.html#models">Model 类</a></li>
+                <li><a href="../index.html#bases">Base 类</a></li>
+                <li><a href="../index.html#animscripts">AnimScript 类</a></li>
+            </ul>
+            
+                        <div class="sidebar-header">开发常用基类</div>
+            <ul class="sidebar-nav">
+                <li><a href="../common/ChildCreatureModel.html">ChildCreatureModel</a></li>
+                <li><a href="../common/CommandWindow.html">CommandWindow</a></li>
+                <li><a href="../common/DamageInfo.html">DamageInfo</a></li>
+                <li><a href="../common/IObserver.html">IObserver</a></li>
+                <li><a href="../common/MapEdge.html">MapEdge</a></li>
+                <li><a href="../common/MapGraph.html">MapGraph</a></li>
+                <li><a href="../common/MapNode.html">MapNode</a></li>
+                <li><a href="../common/MovableObjectNode.html">MovableObjectNode</a></li>
+                <li><a href="../common/Notice.html">Notice</a></li>
+                <li><a href="../common/PassageObjectModel.html">PassageObjectModel</a></li>
+                <li><a href="../common/UnitBuf.html">UnitBuf</a></li>
+                <li><a href="../common/UnitStatBuf.html">UnitStatBuf</a></li>
+                <li><a href="../common/UncontrollableAction.html">UncontrollableAction</a></li>
+                <li><a href="../animscript/CreatureAnimScript.html">CreatureAnimScript</a></li>
+                <li><a href="../base/CreatureBase.html">CreatureBase</a></li>
+                <li><a href="../base/EquipmentScriptBase.html">EquipmentScriptBase</a></li>
+                <li><a href="../manager/AgentManager.html">AgentManager</a></li>
+                <li><a href="../manager/CreatureManager.html">CreatureManager</a></li>
+                <li><a href="../manager/WorkerManager.html">WorkerManager</a></li>
+                <li><a href="../model/AgentModel.html">AgentModel</a></li>
+                <li><a href="../model/ArmorModel.html">ArmorModel</a></li>
+                <li><a href="../model/CreatureModel.html">CreatureModel</a></li>
+                <li><a href="../model/WeaponModel.html">WeaponModel</a></li>
+                <li><a href="../model/WorkerModel.html">WorkerModel</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="../index.html">首页</a> / 开发常用基类 / PassageObjectModel
+            </div>
+
+            <div class="detail-header">
+                <h1>PassageObjectModel</h1>
+                <div class="namespace">命名空间: Global</div>
+                <p class="description">通道对象模型类，继承自ObjectModelBase。代表设施中的通道区域，包含地图节点、门、电梯等信息。</p>
+            </div>
+
+            <a href="../index.html" class="back-link">← 返回首页</a>
+
+            <section class="property-section">
+                <h2>公共属性</h2>
+                
+                <div class="property-item">
+                    <div class="property-name">isActivate</div>
+                    <div class="property-type">属于/类型：<span class="type-name">bool</span></div>
+                    <div class="description">是否激活</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">isDynamic</div>
+                    <div class="property-type">属于/类型：<span class="type-name">bool</span></div>
+                    <div class="description">是否动态</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">centerNode</div>
+                    <div class="property-type">属于/类型：<span class="type-name">MapNode</span></div>
+                    <div class="description">中心节点</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">height</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">高度</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">scaleFactor</div>
+                    <div class="property-type">属于/类型：<span class="type-name">float</span></div>
+                    <div class="description">缩放因子，默认为1f</div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-name">type</div>
+                    <div class="property-type">属于/类型：<span class="type-name">PassageType</span></div>
+                    <div class="description">通道类型</div>
+                </div>
+            </section>
+
+            <section class="method-section">
+                <h2>重要方法</h2>
+                
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">string</span> <span class="function-name">GetId</span>()</div>
+                    <div class="description">获取通道ID</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">string</span> <span class="function-name">GetSefiraName</span>()</div>
+                    <div class="description">获取所属Sefira名称</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">Sefira</span> <span class="function-name">GetSefira</span>()</div>
+                    <div class="description">获取所属Sefira</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">MapNode[]</span> <span class="function-name">GetNodeList</span>()</div>
+                    <div class="description">获取所有地图节点</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">DoorObjectModel[]</span> <span class="function-name">GetDoorList</span>()</div>
+                    <div class="description">获取所有门</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">ElevatorPassageModel[]</span> <span class="function-name">GetElevatorList</span>()</div>
+                    <div class="description">获取所有电梯</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">EnterUnit</span>(MovableObjectNode unit)</div>
+                    <div class="description">单位进入通道</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">ExitUnit</span>(MovableObjectNode unit)</div>
+                    <div class="description">单位离开通道</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">MovableObjectNode[]</span> <span class="function-name">GetEnteredTargetsAsArray</span>()</div>
+                    <div class="description">获取通道内所有单位</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">MapNode</span> <span class="function-name">GetLeft</span>()</div>
+                    <div class="description">获取最左侧节点</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">MapNode</span> <span class="function-name">GetRight</span>()</div>
+                    <div class="description">获取最右侧节点</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">float</span> <span class="function-name">GetWidth</span>()</div>
+                    <div class="description">获取通道宽度</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">Activate</span>()</div>
+                    <div class="description">激活通道</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">bool</span> <span class="function-name">IsIsolate</span>()</div>
+                    <div class="description">是否为收容室</div>
+                </div>
+
+                <div class="method-item">
+                    <div class="method-signature"><span class="access-modifier">public</span> <span class="return-type">void</span> <span class="function-name">AttachBloodObject</span>(float posx)</div>
+                    <div class="description">在指定位置附加血液效果</div>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; 脑叶公司Mod开发文档 by 小鲨鱼</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
